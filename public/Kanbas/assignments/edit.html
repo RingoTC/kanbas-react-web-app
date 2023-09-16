@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Assignments - kanbas</title>
+</head>
+<body>
+<table id="main" class="container">
+    <td class="left" valign="top">
+        <ul class="menu">
+            <li><a href="../profile.html">Account</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="../course/course.html">Courses</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Inbox</a></li>
+            <li><a href="#">Studio</a></li>
+            <li><a href="#">Commons</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </td>
+    <td class="center" valign="top" width="200px">
+        <ul class="sidebar" style="line-height: 20px">
+            <li><a href="../home.html">Home</a></li>
+            <li><a href="#">Modules</a></li>
+            <li><a href="#">Piazza</a></li>
+            <li><a href="#">Zoom Meetings</a></li>
+            <li><a href="./index.html">Assignments</a></li>
+            <li><a href="#">Quizzes</a></li>
+            <li><a href="../grades.html">Grades</a></li>
+            <li><a href="#">People</a></li>
+            <li><a href="#">Pamopto Video</a></li>
+            <li><a href="#">Discussions</a></li>
+            <li><a href="#">Announcements</a></li>
+            <li><a href="#">Pages</a></li>
+            <li><a href="#">Outcomes</a></li>
+            <li><a href="#">Collaborations</a></li>
+            <li><a href="#">Syllabus</a></li>
+            <li><a href="#">Settings</a></li>
+        </ul>
+    </td>
+    <td class="right">
+        <form action="./index.html" class="assign-details">
+            <select>
+                <option value="1">SpeedGrader</option>
+            </select>
+            <hr>
+            <h2>Assignment Name</h2>
+            <input type="text" name="ass-name" id="ass-name" value="A1 - ENV + HTML">
+            <br><br><textarea>This is the assignment description.</textarea><br><br>
+            <label for="points">Points</label> <br>
+            <input type="text" name="points" id="points" value="100"><br><br>
+
+            <label for="group">Assignment Group</label> <br>
+            <input type="text" name="group" id="group" value="ASSIGNMENTS"><br><br>
+
+            <label for="display">Display Grade as</label> <br>
+            <input type="text" name="display" id="display" value="Percentage"><br><br>
+
+            <label for="submission">Submission Type</label> <br>
+            <input type="text" name="submission" id="submission" value="Online"><br><br>
+
+            <label>Online Entry Options</label> <br>
+            <input type="checkbox"> Text Entry <br>
+            <input type="checkbox"> Website URL <br>
+            <input type="checkbox"> Media Recordings <br>
+            <input type="checkbox"> Student Annotation <br>
+            <input type="checkbox"> File Uploads <br>
+            <br><br>
+            <label>Submission Attempts</label><br>
+            <select>
+                <option value="Unlimited">Unlimited</option>
+            </select>
+            <br><br>
+            <label>Plagiarism Review</label><br>
+            <select>
+                <option value="None">None</option>
+            </select>
+            <br><br>
+            <label>Group Assignment</label> <br>
+            <input type="checkbox"> This is a group assignment <br>
+            <br><br>
+
+            <label>Peer Reviews</label> <br>
+            <input type="checkbox"> Require Peer Reviews<br>
+            <br><br>
+
+            <label>Assign</label><br>
+            Assign to <br>
+            <input type="text" value="Everyone"><br><br>
+
+            <label>Due</label>
+            <input type="date" value="2023-9-12"><br><br>
+
+            <label>Available from</label>
+            <input type="date" value="2023-9-12">
+            <br><br>
+
+            <label>Until</label>
+            <input type="date" value="2023-9-12">
+            <br><br>
+
+
+            <button>Cancel</button>
+            <button>Save</button>
+
+        </form>
+    </td>
+</table>
+</body>
