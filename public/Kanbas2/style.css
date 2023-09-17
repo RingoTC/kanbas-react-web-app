@@ -1,0 +1,102 @@
+/* default */
+.btn-default{
+    background:#eee;
+    border-radius: 3px;
+    border:1px solid #ccc;
+}
+/* navigation */
+.left{
+    margin:0;
+    padding: 0;
+}
+.left #navbar{
+    background: #000000;
+    color:#fff;
+    position: fixed;
+    height: 100%;
+    width:inherit;
+    margin:0 auto;
+}
+.left #navbar .logo-container{
+    width: 100%;
+    background-color: #000000;
+    box-sizing: border-box;
+}
+.left #navbar .logo{
+    background-image: url('https://instructure-uploads.s3.amazonaws.com/account_145230000000000001/attachments/949/NU_MonoLVX_RGB_RW.png');
+    display: block;
+    overflow: hidden;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform .3s;
+    height: 75px;
+}
+.left #navbar .nav-item{
+    height:75px;
+}
+
+.left #navbar .nav-icon-container{
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    z-index: 1;
+    width: 48px;
+    margin: 0 auto;
+    height:30px;
+    line-height: 30px;
+}
+.left #navbar .nav-link .nav-icon-container .ic-icon-svg{
+    fill: #D41B2C;
+    width:32px;
+}
+.left #navbar .nav-link .menu-text{
+    color:#ccc;
+}
+.left #navbar .nav-active{
+    background:#fff;
+}
+.left #navbar .nav-active .menu-text{
+    color:#d41c2c;
+}
+
+/*profile*/
+.hamberge{
+    background: none;
+    border:none;
+    width:60px;
+}
+.main .header{
+    border-bottom: 1px solid #ccc;
+}
+.main .header .title{
+    text-align: left;
+}
+.main .header .title p{
+    margin:0;
+    padding:0;
+    font-size:24px;
+}
+
+.main .profile .nav-item a{
+    text-align: left;
+    color:#9f231c;
+}
+
+.main .profile .nav-item .active{
+    text-align: left;
+    color:#000000;
+    border-left: 2px solid #000000;
+}
+.main .profile .profile-context{
+    text-align: left;
+}
+.main .profile .portrait img{
+    width: 100px;
+    height: 100px;
+    object-fit:cover;
+    border-radius: 100%;
+}
+.main .profile .portrait p{
+    font-size:24px;
+    padding:10px 0px 10px 0px;
+}
