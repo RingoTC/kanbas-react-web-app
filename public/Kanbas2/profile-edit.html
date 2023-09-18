@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Profile - Kanbas</title>
+  <title>Edit Profile - Kanbas</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
   <link rel="stylesheet" href="/Kanbas2/style.css">
@@ -19,7 +19,9 @@
           </li>
           <li class="nav-item nav-active">
             <a class="nav-link" href="#">
-              <i class="fa fa-user" aria-hidden="true"></i>
+              <div class="nav-icon-container" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg" version="1.1" x="0" y="0" viewBox="0 0 280 259" enable-background="new 0 0 280 259" xml:space="preserve"><path d="M73.31,198c-11.93,0-22.22,8-24,18.73a26.67,26.67,0,0,0-.3,3.63v.3a22,22,0,0,0,5.44,14.65,22.47,22.47,0,0,0,17.22,8H200V228.19h-134V213.08H200V198Zm21-105.74h90.64V62H94.3ZM79.19,107.34V46.92H200v60.42Zm7.55,30.21V122.45H192.49v15.11ZM71.65,16.71A22.72,22.72,0,0,0,49,39.36V190.88a41.12,41.12,0,0,1,24.32-8h157V16.71ZM33.88,39.36A37.78,37.78,0,0,1,71.65,1.6H245.36V198H215.15v45.32h22.66V258.4H71.65a37.85,37.85,0,0,1-37.76-37.76Z"></path></svg>
+              </div>
               <div class="menu-text">Account</div>
             </a>
           </li>
@@ -129,37 +131,62 @@
           </ul>
         </div>
         <div class="profile-context col-9">
+          <form action="./profile.html">
           <div class="row">
             <div class="col-8">
-              <div class="portrait">
-                <img src="/Kanbas2/images/portrait.jpg">
-                <p>Han Liao</p>
+              <div class="portrait portrait-edit">
+                <img src="/Kanbas2/images/portrait.jpg"> <br>
+                <label for="name" class="form-label"><h5>Name:*</h5></label>
+                <input class="profile-input form-control" type="text" id="name" name="name" value="Han Liao">
+                <label for="pronouns" class="form-label">Pronouns:</label>
+                <select class="profile-input form-control" id="pronouns" name="pronouns">
+                  <option value="male">Male</option>>
+                  <option value="female">Female</option>>
+                  <option value="non-binary">Non-binary</option>>
+                </select>
+                <label for="title" class="form-label">Title</label>
+                <input class="profile-input form-control" type="text" name="title" id="title"/>
                 <div class="profile-item">
                   <h2>Contact</h2>
                   <p>No registered services, you can add some on the settings page.</p>
                 </div>
                 <div class="profile-item">
                   <h2>Biography</h2>
-                  <p>Student of NEU</p>
+                  <textarea class="profile-input form-control" placeholder="Biography information">Student of NEU</textarea>
                 </div>
                 <div class="profile-item links">
                   <h2>Links</h2>
-                  <p>
-                    <a href="https://www.youtube.com/@WebDevTV">YouTube</a>
-                    <svg t="1695056534405" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1599" width="40" height="40"><path d="M832 128H640v64h146.752L521.376 457.376l45.248 45.248L832 237.248V384h64V128z" fill="#d41c2c" p-id="1600"></path><path d="M768 832H192V256h352v-64H160a32 32 0 0 0-32 32v640a32 32 0 0 0 32 32h640a32 32 0 0 0 32-32V480h-64v352z" fill="#d41c2c" p-id="1601"></path></svg>
-                  </p>
-                  <p>
-                    <a href="https://github.com/ringotc/">GitHub</a>
-                    <svg t="1695056534405" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1599" width="40" height="40"><path d="M832 128H640v64h146.752L521.376 457.376l45.248 45.248L832 237.248V384h64V128z" fill="#d41c2c" p-id="1600"></path><path d="M768 832H192V256h352v-64H160a32 32 0 0 0-32 32v640a32 32 0 0 0 32 32h640a32 32 0 0 0 32-32V480h-64v352z" fill="#d41c2c" p-id="1601"></path></svg>
-                  </p>
+                  <ul>
+                    <li><a href="https://github.com/ringotc">GitHub</a></li>
+                  </ul>
+                  <div class="row">
+                    <div class="col-5">
+                      <h4>Title</h4>
+                      <input class="profile-input" type="text" value="GitHub">
+                    </div>
+                    <div class="col-2">
+                      👉
+                    </div>
+                    <div class="col-5">
+                      <h4>URL</h4>
+                      <input class="profile-input" type="text" value="https://github.com/ringotc"/>
+                    </div>
+                  </div>
+                  <button type="button" class="btn btn-default">Add another link</button>
+                </div>
+                <hr>
+                <div class="edit-buttons float-end">
+                  <button type="button" class="btn btn-default">Cancel</button>
+                  <button type="button" class="btn btn-default profile-save">Save Profile</button>
                 </div>
               </div>
             </div>
             <div class="col-3">
-              <a href="profile-edit.html"><button type="button" class="btn btn-default"><i class="fa fa-pencil" aria-hidden="true"></i>
-                Edit Profile</button></a>
+              <button type="button" class="btn btn-default"><i class="fa fa-pencil" aria-hidden="true"></i>
+                Cancel Editing</button>
             </div>
           </div>
+          </form>
         </div>
       </div>
     </div>

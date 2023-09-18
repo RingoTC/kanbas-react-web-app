@@ -4,6 +4,10 @@
     border-radius: 3px;
     border:1px solid #ccc;
 }
+.btn-default:hover{
+    background:#ccc;
+    color:#000000;
+}
 /* navigation */
 .left{
     margin:0;
@@ -99,4 +103,36 @@
 .main .profile .portrait p{
     font-size:24px;
     padding:10px 0px 10px 0px;
+}
+
+.main .profile .links svg{
+    width:30px;
+}
+
+.main .profile .links a{
+    color:#d41c2c;
+    text-decoration: none;
+    line-height: 30px;
+}
+
+/*profile-edit*/
+.main .profile .profile-input{
+    padding:10px;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    width:200px;
+    margin:10px 0px 10px 0px;
+}
+.main .profile .portrait-edit label{
+    display: block;
+}
+
+.main .profile .edit-buttons .profile-save{
+    background: #d41c2c;
+    color:#eeeeee;
+}
+.main .dashboard .course{
+    min-width: 250px;
+    max-width: 270px;
+    margin:15px 0 15px 0;
 }
