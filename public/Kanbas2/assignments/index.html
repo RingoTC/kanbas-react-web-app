@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Edit Profile - Kanbas</title>
+  <title>Home - Kanbas</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.2/css/all.css" rel="stylesheet">
-  <link rel="stylesheet" href="/Kanbas2/style.css">
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <div class="body container-fluid text-center">
@@ -24,7 +24,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link nav-active" href="#">
+            <a class="nav-link" href="../course/index.html">
               <div class="nav-icon-container" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--dashboard" version="1.1" x="0" y="0" viewBox="0 0 280 200" enable-background="new 0 0 280 200" xml:space="preserve"><path d="M273.09,180.75H197.47V164.47h62.62A122.16,122.16,0,1,0,17.85,142a124,124,0,0,0,2,22.51H90.18v16.29H6.89l-1.5-6.22A138.51,138.51,0,0,1,1.57,142C1.57,65.64,63.67,3.53,140,3.53S278.43,65.64,278.43,142a137.67,137.67,0,0,1-3.84,32.57ZM66.49,87.63,50.24,71.38,61.75,59.86,78,76.12Zm147,0L202,76.12l16.25-16.25,11.51,11.51ZM131.85,53.82v-23h16.29v23Zm15.63,142.3a31.71,31.71,0,0,1-28-16.81c-6.4-12.08-15.73-72.29-17.54-84.25a8.15,8.15,0,0,1,13.58-7.2c8.88,8.21,53.48,49.72,59.88,61.81a31.61,31.61,0,0,1-27.9,46.45ZM121.81,116.2c4.17,24.56,9.23,50.21,12,55.49A15.35,15.35,0,1,0,161,157.3C158.18,152,139.79,133.44,121.81,116.2Z"></path></svg>
               </div>
@@ -32,7 +32,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./course/">
+            <a class="nav-link  nav-active" href="./course/">
               <div class="nav-icon-container" aria-hidden="true">
                 <svg xmlns="http://www.w3.org/2000/svg" class="ic-icon-svg ic-icon-svg--courses" version="1.1" x="0" y="0" viewBox="0 0 280 259" enable-background="new 0 0 280 259" xml:space="preserve"><path d="M73.31,198c-11.93,0-22.22,8-24,18.73a26.67,26.67,0,0,0-.3,3.63v.3a22,22,0,0,0,5.44,14.65,22.47,22.47,0,0,0,17.22,8H200V228.19h-134V213.08H200V198Zm21-105.74h90.64V62H94.3ZM79.19,107.34V46.92H200v60.42Zm7.55,30.21V122.45H192.49v15.11ZM71.65,16.71A22.72,22.72,0,0,0,49,39.36V190.88a41.12,41.12,0,0,1,24.32-8h157V16.71ZM33.88,39.36A37.78,37.78,0,0,1,71.65,1.6H245.36V198H215.15v45.32h22.66V258.4H71.65a37.85,37.85,0,0,1-37.76-37.76Z"></path></svg>
               </div>
@@ -85,109 +85,116 @@
         </ul>
       </div>
     </div>
-    <div class="d-flex mb-3 flex-column col-10 main">
-      <div class="p-2 row header">
-        <div class="col-2">
-          <button class="hamberge">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" t="1694988412409" class="icon" viewBox="0 0 1024 1024" version="1.1" p-id="1535"><path d="M170.666667 170.666667a42.666667 42.666667 0 0 0 0 85.333333h682.666666a42.666667 42.666667 0 1 0 0-85.333333H170.666667z m-42.666667 341.333333a42.666667 42.666667 0 0 1 42.666667-42.666667h682.666666a42.666667 42.666667 0 1 1 0 85.333334H170.666667a42.666667 42.666667 0 0 1-42.666667-42.666667z m0 298.666667a42.666667 42.666667 0 0 1 42.666667-42.666667h682.666666a42.666667 42.666667 0 1 1 0 85.333333H170.666667a42.666667 42.666667 0 0 1-42.666667-42.666666z" fill="#d41c2c" p-id="1536"/></svg>
-          </button>
+    <div class="col-10">
+      <div class="d-flex mb-3 flex-column main">
+        <div class="p-2 row header">
+          <div class="col-12 title d-flex flex-row flex-wrap align-items-center">
+            <i class="fa-solid fa-bars sidebar-button"></i>
+            <nav aria-label="breadcrumb align-self-center">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">CS5610.11744.202310</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Modules</li>
+              </ol>
+            </nav>
+          </div>
         </div>
-        <div class="col-5 title d-flex align-items-center">
-          <p>Han Liao's Profile</p>
-        </div>
-      </div>
-      <div class="p-2 profile row">
-        <div class="profile-sidebar col-3 ">
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Notifications</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Files</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Settings</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">ePortfolios</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Shared Content</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">The Hub</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Qwickly Course Tools</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Global Announcements</a>
-            </li>
-          </ul>
-        </div>
-        <div class="profile-context col-9">
-          <form action="./profile.html">
-          <div class="row">
-            <div class="col-8">
-              <div class="portrait portrait-edit">
-                <img src="/Kanbas2/images/portrait.jpg"> <br>
-                <label for="name" class="form-label"><h5>Name:*</h5></label>
-                <input class="profile-input form-control" type="text" id="name" name="name" value="Han Liao">
-                <label for="pronouns" class="form-label">Pronouns:</label>
-                <select class="profile-input form-control" id="pronouns" name="pronouns">
-                  <option value="male">Male</option>>
-                  <option value="female">Female</option>>
-                  <option value="non-binary">Non-binary</option>>
-                </select>
-                <label for="title" class="form-label">Title</label>
-                <input class="profile-input form-control" type="text" name="title" id="title"/>
-                <div class="profile-item">
-                  <h2>Contact</h2>
-                  <p>No registered services, you can add some on the settings page.</p>
-                </div>
-                <div class="profile-item">
-                  <h2>Biography</h2>
-                  <textarea class="profile-input form-control" placeholder="Biography information">Student of NEU</textarea>
-                </div>
-                <div class="profile-item links">
-                  <h2>Links</h2>
-                  <ul>
-                    <li><a href="https://github.com/ringotc">GitHub</a></li>
-                  </ul>
-                  <div class="row">
-                    <div class="col-5">
-                      <h4>Title</h4>
-                      <input class="profile-input" type="text" value="GitHub">
-                    </div>
-                    <div class="col-2">
-                      👉
-                    </div>
-                    <div class="col-5">
-                      <h4>URL</h4>
-                      <input class="profile-input" type="text" value="https://github.com/ringotc"/>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-default">Add another link</button>
-                </div>
-                <hr>
-                <div class="edit-buttons float-end">
-                  <button type="button" class="btn btn-default">Cancel</button>
-                  <button type="button" class="btn btn-default profile-save">Save Profile</button>
-                </div>
+        <div class="p-2 assignments row">
+          <div class="container-fulid sidebar col-2">
+            <p class="decription">202310 2 Fall 2022 Semesister</p>
+            <ul class="nav sidebar-menu flex-column">
+              <li class="nav-item"><a class="nav-link active" href="../course/index.html">Modules</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Piazza</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Zoom Meetings</a></li>
+              <li class="nav-item"><a class="nav-link" href="../assignments/index.html">Assignments</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Quizzes</a></li>
+              <li class="nav-item"><a class="nav-link" href="../course/grades.html">Grades</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">People</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Panopto Video</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Discussions</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Announcements</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Pages</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Files</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Rubrics</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Outcomes</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Collaborations</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Syllabus</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Settings</a></li>
+            </ul>
+          </div>
+          <div class="container-fluid assignments col-md-7-5">
+            <div class="main-header">
+              <button type="button" class="btn btn-secondary">Collapse All</button>
+              <button type="button" class="btn btn-secondary">View Progress</button>
+              <div class="dropdown" style="display: inline-block;">
+                <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Publish All
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+              </div>
+              <button type="button" class="btn btn-danger"><i class="fa-solid fa-plus" style="color: #ffffff;"></i>Module</button>
+              <button type="button" class="btn btn-secondary"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+            </div>
+            <div class="kanbas-card">
+              <div class="kanbas-card-title">
+                <h3>Kanbas-Card-Title</h3>
+              </div>
+              <div class="kanbas-card-body">
+                <ul class="nav flex-column">
+                  <li class="nav-item"><a class="nav-link" href="">
+                    LEARNING OBJECTIVES
+                  </a></li>
+                  <li class="nav-item"><a class="nav-link" href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Introduction to the course</a></li>
+                  <li class="nav-item"><a class="nav-link" href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Learn what is Web Development                                    </a></li>
+                  <li class="nav-item"><a class="nav-link" href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creating a development environment                                    </a></li>
+                  <li class="nav-item"><a class="nav-link" href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Creating a Web Application</a></li>
+                  <li class="nav-item"><a class="nav-link" href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Getting started with the 1st assignment                                    </a></li>
+                  <li class="nav-item"><a class="nav-link" href="">
+                    READING
+                  </a></li>
+                  <li class="nav-item"><a class="nav-link" href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Full Stack Developer - Chapter 1 - Introduction</a></li>
+                  <li class="nav-item"><a class="nav-link" href="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML                                   </a></li>
+                  </a></li>
+                </ul>
               </div>
             </div>
-            <div class="col-3">
-              <button type="button" class="btn btn-default"><i class="fa fa-pencil" aria-hidden="true"></i>
-                Cancel Editing</button>
+          </div>
+          <div class="container-fluid course-info col-md-2-5">
+            <div id="control-course" class="panel">
+              <div class="panel-title">
+                <p>Course Status</p>
+              </div>
+              <div class="panel-body">
+                <ul class="nav">
+                  <li>
+                    <div class="parallel-buttons">
+                      <button class="btn btn-secondary">
+                        <i class="fa-solid fa-ban" style="color: #000000;"></i>
+                        Unpublish</button>
+                      <button class="btn btn-success">
+                        <i class="fa-solid fa-circle-check" style="color: #ffffff;"></i>
+                        Published
+                      </button>
+                    </div>
+                  </li>
+                  <li><button class="btn btn-secondary">Import Existing Content</button></li>
+                  <li><button class="btn btn-secondary">Import from Commons</button></li>
+                  <li><button class="btn btn-secondary">Choose Home Page</button></li>
+                  <li><button class="btn btn-secondary">View Course Stream</button></li>
+                  <li><button class="btn btn-secondary">New Announcement</button></li>
+                  <li><button class="btn btn-secondary">New Analytics</button></li>
+                  <li><button class="btn btn-secondary">View Course Notifications</button></li>
+                </ul>
+              </div>
             </div>
           </div>
-          </form>
         </div>
       </div>
     </div>
+
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

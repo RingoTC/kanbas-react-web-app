@@ -12,6 +12,17 @@
     background:#ccc;
     color:#000000;
 }
+.btn-fullgreen{
+    background:#1ca00b;
+    border-radius: 3px;
+    color:#fff;
+    border:1px solid #0a6a37;
+    margin:0;
+}
+.btn-fullgreen:hover{
+    background:#0ea755;
+    color:#fff;
+}
 .btn-red{
     background-color: #9f231c;
     color:#fff;
@@ -190,6 +201,9 @@
     text-align: right;
     margin:10px 0px 10px 0px;
 }
+.main .main-header button{
+    font-size: 14px;
+}
 #control-course ul li{
     width:100%;
     margin:3px;
@@ -205,6 +219,7 @@
 }
 #control-course ul li .parallel-buttons{
     font-size:0;
+    margin:0px 0px 10px 0px;
 }
 #control-course ul li .parallel-buttons button{
     width: calc(50%); /* 计算宽度，减去两个按钮的1px边框 */
@@ -213,8 +228,26 @@
     text-align: center; /* 按钮内文本居中 */
     margin:0;
 }
+#control-course ul li .parallel-buttons button i{
+    margin:3px;
+}
 .course-info{
     padding: 0;
+}
+
+.panel{
+    margin:10px 0px 20px 0px;
+}
+.panel .panel-title{
+    margin-bottom: 10px;
+    padding:0;
+    font-size: 14px;
+    border-bottom: 1px solid #ccc;
+}
+.panel .panel-title p{
+    margin: 0;
+    padding-left: 10px;
+    text-align: left;
 }
 
 /*sidebar*/
@@ -235,6 +268,23 @@
 }
 
 /*basement*/
+.col-md-1-5 { width: 12.5%; } 
+.col-md-2-5 { width: 20.83333%; }
+.col-md-3-5 { width: 29.16667%; }
+.col-md-4-5 { width: 37.5%; }
+.col-md-5-5 { width: 45.83333%; }
+.col-md-6-5 { width: 54.16667%; }
+.col-md-7-5 { width: 62.5%; }
+.col-md-8-5 { width: 70.83333%; }
+.col-md-9-5 { width: 79.16667%; }
+.col-md-10-5 { width: 87.5%; }
+.col-md-11-5 { width: 95.8333%; }
+
+.fa{
+    color: #d41c2c;
+    font-size:px;
+}
+
 .kanbas-card{
     width:100%;
 }
@@ -279,3 +329,23 @@
     display: block;
 }
 
+/* grades */
+.grades .searchbar{
+    margin:20px 0px 20px 0px;
+}
+.grades .grades_control{
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+.grades .grades_control .dropdown, .grades .grades_control .btn{
+    margin-right: 10px;
+}
+.grades .result .result-table{
+    border:1px solid #ccc;
+}
+.grades .result .result-table thead tr th{
+    background: #eeeeee;
+}
+.grades .result .result-table input{
+    text-align: center;
+}
