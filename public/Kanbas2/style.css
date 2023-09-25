@@ -349,3 +349,13 @@
 .grades .result .result-table input{
     text-align: center;
 }
+/*assignments*/
+.published{
+    font-size:16px;
+}
+.main-body{
+    text-align: left;
+}
+.assignments-detail-form>form>div{
+    margin:20px 0px 20px 0px;
+}
