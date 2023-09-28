@@ -116,6 +116,9 @@
     color:#9f231c;
 }
 
+.main .profile .nav-item .nav-link{
+    padding-left:10px;
+}
 .main .profile .nav-item .active{
     text-align: left;
     color:#000000;
