@@ -36,8 +36,8 @@
 .left {
   margin: 0;
   padding: 0;
-  min-width: 120px;
-  max-width: 160px;
+  min-width: 75px;
+  max-width: 85px;
   position: relative;
 }
 .left #navbar {
@@ -45,8 +45,8 @@
   color: #fff;
   position: fixed;
   height: 100%;
-  min-width: 120px;
-  max-width: 160px;
+  min-width: 75px;
+  max-width: 85px;
   text-align: center;
   margin: 0 auto;
   top: 0;
@@ -69,23 +69,33 @@
 }
 .left #navbar .nav-item {
   height: 75px;
+  min-width: 75px;
+  max-width: 85px;
+}
+
+.left #navbar .nav-item a {
+  padding: 5px 0px 5px 0px;
 }
 
 .left #navbar .nav-icon-container {
   transform: translate3d(0, 0, 0);
   position: relative;
   z-index: 1;
-  width: 48px;
   margin: 0 auto;
   height: 30px;
+  width: 30px;
   line-height: 30px;
+}
+.left #navbar .nav-link {
+  padding: 0;
 }
 .left #navbar .nav-link .nav-icon-container .ic-icon-svg {
   fill: #d41b2c;
-  width: 32px;
 }
 .left #navbar .nav-link .menu-text {
   color: #ccc;
+  font-size: 12px;
+  margin: 5px 0px 5px 0px;
 }
 .left #navbar .nav-active {
   background: #fff;
@@ -112,18 +122,19 @@
   font-size: 24px;
 }
 
-.main .profile .nav-item a {
+.main .nav-item a {
   text-align: left;
   color: #9f231c;
 }
 
-.main .profile .nav-item .nav-link {
+.main .nav-item .nav-link {
   padding-left: 10px;
+  margin-bottom: 15px;
 }
-.main .profile .nav-item .active {
+.main .nav-item .active {
   text-align: left;
   color: #000000;
-  border-left: 2px solid #000000;
+  border-left: 8px solid #000000;
 }
 .main .profile .profile-context {
   text-align: left;
@@ -171,7 +182,7 @@
   width: 270px;
   height: 300px;
   border-radius: 0px;
-  margin: 0px 15px 15px 0px;
+  margin: 0px 30px 30px 0px;
 }
 
 .main .dashboard .course .card-body {
@@ -196,8 +207,10 @@
 .main .title .breadcrumb {
   margin: 0;
 }
-.main .title .breadcrumb-item {
-  font-size: 20px;
+.decription {
+  font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 .main .title .sidebar-button {
   font-size: 40px;
@@ -269,17 +282,8 @@
 /*sidebar*/
 .sidebar {
   padding: 0 0 0 20px;
-}
-
-.sidebar .sidebar-menu {
-  text-align: left;
-}
-.sidebar .sidebar-menu li a {
-  color: #9f231c;
-}
-.sidebar .sidebar-menu li .active {
-  color: #000000;
-  border-left: 2px solid #000000;
+  max-width: 200px;
+  min-width: 190px;
 }
 
 /*basement*/
@@ -436,4 +440,8 @@
 
 .assignments-card li div {
   width: 80%;
+}
+
+.dashboard-courses {
+  max-width: 1300px;
 }
