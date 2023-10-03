@@ -57,7 +57,7 @@
   background-color: #000000;
   box-sizing: border-box;
 }
-.left #navbar .logo {
+.logo {
   background-image: url("https://instructure-uploads.s3.amazonaws.com/account_145230000000000001/attachments/949/NU_MonoLVX_RGB_RW.png");
   display: block;
   overflow: hidden;
@@ -67,17 +67,17 @@
   transition: transform 0.3s;
   height: 75px;
 }
-.left #navbar .nav-item {
+.nav-item {
   height: 75px;
   min-width: 75px;
   max-width: 85px;
 }
 
-.left #navbar .nav-item a {
+.nav-item a {
   padding: 5px 0px 5px 0px;
 }
 
-.left #navbar .nav-icon-container {
+.nav-icon-container {
   transform: translate3d(0, 0, 0);
   position: relative;
   z-index: 1;
@@ -85,6 +85,7 @@
   height: 30px;
   width: 30px;
   line-height: 30px;
+  fill: #ffffff;
 }
 .left #navbar .nav-link {
   padding: 0;
@@ -92,7 +93,7 @@
 .left #navbar .nav-link .nav-icon-container .ic-icon-svg {
   fill: #d41b2c;
 }
-.left #navbar .nav-link .menu-text {
+.left .nav-link .menu-text {
   color: #ccc;
   font-size: 12px;
   margin: 5px 0px 5px 0px;
@@ -182,6 +183,7 @@
   width: 270px;
   height: 300px;
   border-radius: 0px;
+  text-align: left;
   margin: 0px 30px 30px 0px;
 }
 
@@ -444,4 +446,73 @@
 
 .dashboard-courses {
   max-width: 1300px;
+}
+
+/* responsible */
+@media screen and (max-width: 1400px) {
+  .panel {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  #navbar {
+    display: none;
+  }
+  .left {
+    display: none;
+  }
+  .sidebar {
+    display: none;
+  }
+  .course-info {
+    display: none;
+  }
+  .header {
+    display: none;
+  }
+  .assignments {
+    padding: 0;
+    margin: 0;
+    width: 100% !important;
+  }
+  .assignments .main-header {
+    margin: 0;
+    padding: 0;
+  }
+  .btn {
+    font-size: 14px !important;
+  }
+  .mobile-header {
+    display: block !important;
+    background-color: #000000;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+.mobile-header {
+  display: none;
+}
+
+#full-navbar {
+  position: fixed;
+  background-color: #000;
+  z-index: 999;
+  width: 100vh;
+  height: 100vh;
+  text-align: center;
+}
+
+#full-navbar ul li {
+  text-align: center;
+}
+#full-navbar a {
+  color: #ffffff;
+}
+
+.input-border {
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
