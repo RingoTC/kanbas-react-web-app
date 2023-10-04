@@ -67,17 +67,20 @@
   transition: transform 0.3s;
   height: 75px;
 }
-#navbar .nav-item,#full-navbar .nav-item {
+#navbar .nav-item,
+#full-navbar .nav-item {
   height: 75px;
   min-width: 75px;
   max-width: 85px;
 }
 
-#navbar .nav-item a,#full-navbar .nav-item a {
+#navbar .nav-item a,
+#full-navbar .nav-item a {
   padding: 5px 0px 5px 0px;
 }
 
-#navbar .nav-icon-container,#full-navbar .nav-icon-container {
+#navbar .nav-icon-container,
+#full-navbar .nav-icon-container {
   transform: translate3d(0, 0, 0);
   position: relative;
   z-index: 1;
@@ -236,7 +239,7 @@
 .main .main-header button {
   font-size: 14px;
 }
-.main .main-header table{
+.main .main-header table {
   line-height: 40px;
 }
 .main-header table td {
@@ -410,7 +413,7 @@
 .main-body {
   text-align: left;
 }
-.assignments{
+.assignments {
   text-align: left;
 }
 .assignments-detail-form > form > div {
@@ -528,12 +531,34 @@
   padding: 10px;
 }
 
-
-.update{
+.update {
   float: right;
   padding: 10px;
   background-color: #d41c2c;
-  border:none;
+  border: none;
   border-radius: 5px;
   color: #fff;
+}
+
+.card a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.drag {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+}
+
+.drag li {
+  border: 1px solid #ccc;
+  height: 60px;
+  line-height: 45px;
+  background-color: #eee;
+}
+.drag li a {
+  color: #000 !important;
 }
