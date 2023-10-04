@@ -1,6 +1,6 @@
 import db from "../../Kanbas/Database";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
-import CourseNavigation from "./CourseNavigation";
+import CourseNavigation from "../utilities/Sidebar";
 
 function Courses() {
   const { courseId } = useParams();

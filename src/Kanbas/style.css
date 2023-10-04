@@ -1,0 +1,170 @@
+/* empty default style *
+body,
+button, input, select, textarea /* for ie */ {
+    font: 14px/1.5 tahoma, \5b8b\4f53, sans-serif;
+}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: normal;}
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp { font-family: courier new, courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读, 让 small 正常化 */
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+/** 重置文本格式元素 **/
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+sup { vertical-align: text-top; } /* 重置, 减少对行高的影响 */
+sub { vertical-align: text-bottom; }
+/** 重置表单元素 **/
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: 0; } /* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea { font-size: 100%; } /* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+/* 重置 HTML5 元素 */
+article, aside, details, figcaption, figure, footer,header, hgroup, menu, nav, section,
+summary, time, mark, audio, video {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+mark { background: #ff0; }
+/* 设置placeholder的默认样式 */
+:-moz-placeholder {
+    color: #ddd;
+    opacity: 1;
+}
+::-moz-placeholder {
+    color: #ddd;
+    opacity: 1;
+}
+input:-ms-input-placeholder {
+    color: #ddd;
+    opacity: 1;
+}
+input::-webkit-input-placeholder {
+    color: #ddd;
+    opacity: 1;
+}
+li{
+    list-style:none;
+}
+
+img{
+    vertical-align:top;
+    border:none;
+}
+
+/* navbar */
+#navbar {
+    background: #000000;
+    color: #fff;
+    position: fixed;
+    height: 100%;
+    min-width: 75px;
+    max-width: 85px;
+    text-align: center;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+}
+
+#navbar .nav-item a {
+    text-align: left;
+    color: #9f231c;
+    text-align: center;
+}
+#navbar .nav-item a:hover {
+    text-decoration: none;
+}
+
+#navbar .nav-item .nav-link {
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+#navbar .nav-item .active {
+    text-align: left;
+    background: #ffffff;
+}
+#navbar .nav-item .active .menu-text {
+    color: #000000;
+}
+
+#navbar .logo-container {
+    width: 100%;
+    background-color: #000000;
+    box-sizing: border-box;
+}
+#navbar .logo {
+    background-image: url("https://instructure-uploads.s3.amazonaws.com/account_145230000000000001/attachments/949/NU_MonoLVX_RGB_RW.png");
+    display: block;
+    overflow: hidden;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform 0.3s;
+    height: 75px;
+}
+#navbar .nav-item {
+    height: 75px;
+    min-width: 75px;
+    max-width: 85px;
+}
+
+#navbar .nav-item a {
+    padding:10px;
+}
+
+#navbar .nav-icon-container {
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    fill: #ffffff;
+}
+#navbar .nav-link {
+    padding: 0;
+}
+#navbar .nav-link .nav-icon-container .ic-icon-svg {
+    fill: #d41b2c;
+}
+#navbar .nav-link .menu-text {
+    color: #ccc;
+    font-size: 12px;
+    margin: 5px 0px 5px 0px;
+}
+#navbar .nav-active {
+    background: #fff;
+}
+#navbar .nav-active .menu-text {
+    color: #d41c2c;
+}
+
+/* components */
+.course {
+    width: 270px;
+    height: 300px;
+    border-radius: 0px;
+    text-align: left;
+    margin: 0px 30px 30px 0px;
+}
+
+.course .card-body {
+    padding: 6px;
+    height: 100px;
+}
+.course .card-body a{
+    text-decoration: none;
+    color:#000000;
+}
+.course .card-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.course .card-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
