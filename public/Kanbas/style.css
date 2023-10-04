@@ -67,17 +67,17 @@
   transition: transform 0.3s;
   height: 75px;
 }
-.nav-item {
+#navbar .nav-item,#full-navbar .nav-item {
   height: 75px;
   min-width: 75px;
   max-width: 85px;
 }
 
-.nav-item a {
+#navbar .nav-item a,#full-navbar .nav-item a {
   padding: 5px 0px 5px 0px;
 }
 
-.nav-icon-container {
+#navbar .nav-icon-container,#full-navbar .nav-icon-container {
   transform: translate3d(0, 0, 0);
   position: relative;
   z-index: 1;
@@ -214,6 +214,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+
 .main .title .sidebar-button {
   font-size: 40px;
   margin: 0 20px 0 20px;
@@ -229,11 +230,17 @@
   text-decoration: none;
 }
 .main .main-header {
-  text-align: right;
+  text-align: left;
   margin: 10px 0px 10px 0px;
 }
 .main .main-header button {
   font-size: 14px;
+}
+.main .main-header table{
+  line-height: 40px;
+}
+.main-header table td {
+  vertical-align: top;
 }
 #control-course ul li {
   width: 100%;
@@ -403,6 +410,9 @@
 .main-body {
   text-align: left;
 }
+.assignments{
+  text-align: left;
+}
 .assignments-detail-form > form > div {
   margin: 20px 0px 20px 0px;
 }
@@ -479,6 +489,7 @@
     margin: 0;
     padding: 0;
   }
+
   .btn {
     font-size: 14px !important;
   }
@@ -515,4 +526,14 @@
   border-radius: 10px;
   border: 1px solid #ccc;
   padding: 10px;
+}
+
+
+.update{
+  float: right;
+  padding: 10px;
+  background-color: #d41c2c;
+  border:none;
+  border-radius: 5px;
+  color: #fff;
 }
