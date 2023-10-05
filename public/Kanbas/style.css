@@ -562,3 +562,12 @@
 .drag li a {
   color: #000 !important;
 }
+
+#feedbacks ul {
+  list-style: none;
+}
+
+#feedbacks li a {
+  color: #000000;
+  text-decoration: none;
+}
