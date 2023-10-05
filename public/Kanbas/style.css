@@ -571,3 +571,11 @@
   color: #000000;
   text-decoration: none;
 }
+
+.list-group-item {
+  border-left: 10px solid green !important;
+}
+
+.list-group-item-secondary {
+  border-left: none !important;
+}
