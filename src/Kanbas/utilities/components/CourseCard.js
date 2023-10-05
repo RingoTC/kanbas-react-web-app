@@ -1,6 +1,5 @@
-import fontawesome from "@fortawesome/fontawesome";
-import FontAwesomeIcon from "@fortawesome/react-fontawesome";
-import { faCheckSquare, faCoffee } from "@fortawesome/fontawesome-free-solid";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
 function CourseCard(props) {
   return (
@@ -32,7 +31,7 @@ function CourseCard(props) {
           <p className="card-text">{props.description}</p>
         </a>
         <a href="#" className="btn float-start">
-          <FontAwesomeIcon icon="coffee" />
+          <FontAwesomeIcon icon={faRightToBracket} />
         </a>
       </div>
     </div>
