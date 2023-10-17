@@ -10,7 +10,7 @@ import Grades from "./Grades";
 
 function Courses() {
   const { courseId } = useParams();
-  const course = db.courses.find((course) => course._id === courseId);
+  let course = db.courses.find((course) => course._id === courseId);
   return (
     <div className="d-flex mb-3 flex-column main">
       <Menu />

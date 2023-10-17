@@ -122,7 +122,7 @@ function Menu() {
         <li className="nav-item" key={index}>
           <a
             className={`nav-link ${pathname.includes(link) && "active"}`}
-            href={`/kanbas/${link}`}
+            href={`/#/Kanbas/${link}`}
           >
             <div className="nav-icon-container" aria-hidden="true">
               {Links2Icon(link)}
