@@ -1,0 +1,19 @@
+.sidebar .nav{
+    line-height: 30px;
+}
+.sidebar .nav-item a{
+    color: var(--kanbas-red);
+    padding-left: 10px;
+    margin: 10px 0px 10px 0px;
+}
+
+.sidebar .nav-item .active{
+    border-left: 8px solid var(--kanbas-black);
+}
+
+.sidebar .coursedescription{
+    font-size: 14px;
+    font-style: italic;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}

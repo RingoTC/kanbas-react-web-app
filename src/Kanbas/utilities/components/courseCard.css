@@ -1,0 +1,26 @@
+.course {
+    width: 270px;
+    height: 300px;
+    border-radius: 0px;
+    text-align: left;
+    margin: 0px 30px 30px 0px;
+}
+
+.course .card-body {
+    padding: 6px;
+    height: 100px;
+}
+.course .card-body a{
+    text-decoration: none;
+    color:#000000;
+}
+.course .card-title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.course .card-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

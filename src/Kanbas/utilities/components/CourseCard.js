@@ -1,10 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
-
+import { Link } from "react-router-dom";
+import "./courseCard.css";
 function CourseCard(props) {
   return (
     <div className="card course" key={props.id}>
-      <a href={`/kanbas/course/course-edit#${props.id}`}>
+      <Link
+        key={props.id}
+        to={`/Kanbas/Courses/${props.id}`}
+        className="list-group-item"
+      >
         <svg
           className="bd-placeholder-img card-img-top"
           width="100%"
@@ -18,9 +23,7 @@ function CourseCard(props) {
           <title>Placeholder</title>
           <rect width="100%" height="100%" fill="#00a381"></rect>
         </svg>
-      </a>
-      <div className="card-body">
-        <a href="/kanbas/course/course-edit">
+        <div className="card-body">
           <h5 className="card-title">
             {props.name}
             <i
@@ -29,11 +32,11 @@ function CourseCard(props) {
             ></i>
           </h5>
           <p className="card-text">{props.description}</p>
-        </a>
-        <a href="#" className="btn float-start">
-          <FontAwesomeIcon icon={faRightToBracket} />
-        </a>
-      </div>
+          <button className="btn float-start">
+            <FontAwesomeIcon icon={faRightToBracket} />
+          </button>
+        </div>
+      </Link>
     </div>
   );
 }

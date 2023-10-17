@@ -1,0 +1,86 @@
+#navbar {
+    background: #000000;
+    color: #fff;
+    position: fixed;
+    height: 100%;
+    min-width: 75px;
+    max-width: 85px;
+    text-align: center;
+    margin: 0 auto;
+    top: 0;
+    left: 0;
+}
+
+#navbar .nav-item a {
+    text-align: left;
+    color: #9f231c;
+    text-align: center;
+}
+#navbar .nav-item a:hover {
+    text-decoration: none;
+}
+
+#navbar .nav-item .nav-link {
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
+#navbar .nav-item .active {
+    text-align: left;
+    background: #ffffff;
+}
+#navbar .nav-item .active .menu-text {
+    color: #000000;
+}
+
+#navbar .logo-container {
+    width: 100%;
+    background-color: #000000;
+    box-sizing: border-box;
+}
+#navbar .logo {
+    background-image: url("https://instructure-uploads.s3.amazonaws.com/account_145230000000000001/attachments/949/NU_MonoLVX_RGB_RW.png");
+    display: block;
+    overflow: hidden;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: transform 0.3s;
+    height: 75px;
+}
+#navbar .nav-item {
+    height: 75px;
+    min-width: 75px;
+    max-width: 85px;
+}
+
+#navbar .nav-item a {
+    padding:10px;
+}
+
+#navbar .nav-icon-container {
+    transform: translate3d(0, 0, 0);
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    fill: #ffffff;
+}
+#navbar .nav-link {
+    padding: 0;
+}
+#navbar .nav-link .nav-icon-container .ic-icon-svg {
+    fill: #d41b2c;
+}
+#navbar .nav-link .menu-text {
+    color: #ccc;
+    font-size: 12px;
+    margin: 5px 0px 5px 0px;
+}
+#navbar .nav-active {
+    background: #fff;
+}
+#navbar .nav-active .menu-text {
+    color: #d41c2c;
+}

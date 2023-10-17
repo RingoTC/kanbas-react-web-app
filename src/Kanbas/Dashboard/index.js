@@ -19,7 +19,6 @@ function Dashboard() {
           {db.courses.map((course) => (
             <CourseCard
               key={course._id}
-              to={`/Kanbas/Courses/${course._id}`}
               name={course.name}
               description={course.description}
               id={course._id}

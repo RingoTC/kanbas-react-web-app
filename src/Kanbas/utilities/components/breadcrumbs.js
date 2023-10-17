@@ -1,6 +1,13 @@
-function breadcrumbs(title, subtitle) {
+import "./breadcrumbs.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+
+function Breadcrumbs({ title, subtitle }) {
   return (
-    <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb" id="breadcrumb">
+      <div className="breadcrumb-icon">
+        <FontAwesomeIcon icon={faBars} />
+      </div>
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
           <a href="#">{title}</a>
@@ -13,4 +20,4 @@ function breadcrumbs(title, subtitle) {
   );
 }
 
-export default breadcrumbs;
+export default Breadcrumbs;
