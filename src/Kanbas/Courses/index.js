@@ -7,7 +7,6 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Sidebar from "../utilities/Sidebar";
 import Grades from "./Grades";
-
 function Courses() {
   const { courseId } = useParams();
   let course = db.courses.find((course) => course._id === courseId);
