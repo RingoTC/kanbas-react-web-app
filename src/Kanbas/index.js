@@ -1,21 +1,18 @@
-import Menu from "./utilities/Menu";
 import { Routes, Route, Navigate } from "react-router-dom";
+import KanbasNavigation from "./components/KanbasNavigation";
 import Dashboard from "./Dashboard";
-import Courses from "./Courses";
-import "./style.css";
-
-function Kanbas() {
+export default function index() {
   return (
-    <div className="d-flex flex-row container-fluid">
-      <Menu />
-      <div className="body">
+    <div className="body container-fluid row">
+      <div className="left col-1">
+        <KanbasNavigation />
+      </div>
+      <div className="right col-11">
         <Routes>
           <Route path="/" element={<Navigate to="Dashboard" />} />
-          <Route path="Dashboard" element={<Dashboard />} />
-          <Route path="Courses/:courseId/*" element={<Courses />} />
+          <Route path="/Dashboard" element={<Dashboard />} />
         </Routes>
       </div>
     </div>
   );
 }
-export default Kanbas;
