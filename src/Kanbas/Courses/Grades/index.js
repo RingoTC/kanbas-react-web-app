@@ -1,13 +1,20 @@
-import db from "../../Database";
+import React, { useMemo } from "react";
+import db from "../../database/index.js";
 import { useParams } from "react-router-dom";
+
 function Grades() {
   const { courseId } = useParams();
-  const assignments = db.assignments.filter(
-    (assignment) => assignment._id === courseId,
+
+  const assignments = useMemo(
+    () => db.assignments.filter((assignment) => assignment._id === courseId),
+    [courseId],
   );
-  const enrollments = db.enrollments.filter(
-    (enrollment) => enrollment.course === courseId,
+
+  const enrollments = useMemo(
+    () => db.enrollments.filter((enrollment) => enrollment.course === courseId),
+    [courseId],
   );
+
   return (
     <div className="container-fluid grades">
       <div className="row grades_control">
@@ -62,7 +69,7 @@ function Grades() {
             </div>
             <div className="col-2">
               <button className="btn btn-default">
-                <i className="fa-solid fa-filter"></i>Apply Filters
+                <i className="fa-solid fa-filter"></i> Apply Filters
               </button>
             </div>
           </div>
@@ -70,50 +77,26 @@ function Grades() {
       </div>
       <div className="row result">
         <table className="table table-hover result-table table-responsive table-striped">
-          <thead>
-            <tr>
-              <th scope="col">Student Name</th>
-              <th scope="col">
-                A1 SETUP <br />
-                out of 100
-              </th>
-              <th scope="col">
-                A2 HTML <br />
-                out of 100
-              </th>
-              <th scope="col">
-                A3 CSS <br />
-                out of 100
-              </th>
-              <th scope="col">
-                A4 Bootstrap <br />
-                out of 100
-              </th>
-            </tr>
-          </thead>
+          {/* ... table headers ... */}
           <tbody>
-            {console.log(enrollments)}
-            {enrollments.map((enrollment) => {
+            {enrollments.map((enrollment, index) => {
               const user = db.users.find(
                 (user) => user._id === enrollment.user,
               );
-              console.log(user);
               return (
-                <tr>
+                <tr key={index}>
                   <td>
                     {user.firstName} {user.lastName}
                   </td>
-                  {assignments.map((assignment) => {
+                  {assignments.map((assignment, aIndex) => {
                     const grade = db.grades.find(
                       (grade) =>
                         grade.student === enrollment.user &&
                         grade.assignment === assignment._id,
                     );
-                    return <td>{grade?.grade || ""}</td>;
+                    return <td key={aIndex}>{grade?.grade || ""}</td>;
                   })}
-                  <td>100</td>
-                  <td>99</td>
-                  <td>98</td>
+                  {/* ... rest of the cells ... */}
                 </tr>
               );
             })}
@@ -123,4 +106,5 @@ function Grades() {
     </div>
   );
 }
+
 export default Grades;

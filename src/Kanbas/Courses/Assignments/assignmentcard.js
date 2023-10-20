@@ -1,7 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+function Icon({ className, style, ...props }) {
+  return <i className={className} style={style} {...props}></i>;
+}
+
 function AssignmentsCard({ courseAssignments, courseId }) {
+  const iconStyle = { color: "#333333" };
+  const bigIconStyle = { ...iconStyle, fontSize: "20px" };
+
   return (
     <div className="assignments-card mt-5">
       <div className="assignments-card-body">
@@ -12,16 +19,16 @@ function AssignmentsCard({ courseAssignments, courseId }) {
               <span className="badge rounded-pill text-bg-secondary">
                 40% of Total
               </span>
-              <i
+              <Icon
                 className="fa fa-plus"
-                style={{ color: "#333333" }}
+                style={iconStyle}
                 aria-hidden="true"
-              ></i>
-              <i
+              />
+              <Icon
                 className="fa fa-ellipsis-v"
-                style={{ color: "#333333" }}
+                style={iconStyle}
                 aria-hidden="true"
-              ></i>
+              />
             </a>
           </li>
           {courseAssignments.map((assignment) => (
@@ -29,14 +36,14 @@ function AssignmentsCard({ courseAssignments, courseId }) {
               className="list-group-item d-flex justify-content-between align-items-center"
               key={assignment._id}
             >
-              <i
+              <Icon
                 className="fa-solid fa-grip-vertical"
-                style={{ fontSize: "20px" }}
-              ></i>
-              <i
+                style={bigIconStyle}
+              />
+              <Icon
                 className="fa-solid fa-book"
-                style={{ color: "#2a911d", fontSize: "20px" }}
-              ></i>
+                style={{ ...bigIconStyle, color: "#2a911d" }}
+              />
               <div>
                 <Link
                   to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
@@ -49,16 +56,16 @@ function AssignmentsCard({ courseAssignments, courseId }) {
                   {assignment.dueDate} | {assignment.points}
                 </p>
               </div>
-              <i
+              <Icon
                 className="fa fa-check-circle"
-                style={{ color: "#198754", fontSize: "20px" }}
+                style={{ ...bigIconStyle, color: "#198754" }}
                 aria-hidden="true"
-              ></i>
-              <i
+              />
+              <Icon
                 className="fa fa-ellipsis-v"
-                style={{ color: "#333333", fontSize: "20px" }}
+                style={bigIconStyle}
                 aria-hidden="true"
-              ></i>
+              />
             </li>
           ))}
         </ul>

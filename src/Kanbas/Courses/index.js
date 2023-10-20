@@ -1,4 +1,4 @@
-import db from "../../Kanbas/Database";
+import db from "../database/index.js";
 import { Navigate, Route, Routes, useParams } from "react-router-dom";
 import Menu from "../utilities/Menu";
 import Modules from "./Modules";
