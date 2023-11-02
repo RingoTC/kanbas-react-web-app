@@ -1,124 +1,174 @@
-import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import db from "../../../database/index.js";
+import { Button } from "react-bootstrap";
+import styles from "../../../../index.css";
+import { FaCircleCheck, FaEllipsisVertical } from "react-icons/fa6";
+import { useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
+import {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  setAssignment,
+} from "../assignmentsReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
-function AssignmentEditor() {
+const CourseAssignmentEditor = () => {
+  const assignments = useSelector(
+    (state) => state.assignmentsReducer.assignments,
+  );
+  const assignment = useSelector((state) => {
+    return state.assignmentsReducer.assignment;
+  });
+
+  const dispatch = useDispatch();
   const { assignmentId, courseId } = useParams();
-  const assignment = db.assignments.find(
-    (assignment) => assignment._id === assignmentId,
-  );
 
-  // State
-  const [assignmentName, setAssignmentName] = useState(
-    assignment ? assignment.title : "",
-  );
-  const [description, setDescription] = useState(
-    assignment ? assignment.description : "",
-  );
-  const [points, setPoints] = useState(assignment ? assignment.points : "");
-  const [gradeDisplay, setGradeDisplay] = useState("Points");
-  const [submissionType, setSubmissionType] = useState("Online");
-  const [dueDate, setDueDate] = useState(new Date().toISOString().slice(0, 10));
+  useEffect(() => {
+    // Find the assignment with the specific ID
+    const matchedAssignment = assignments.find(
+      (item) => item.id === assignmentId,
+    );
+
+    // Check if a match was found
+    if (matchedAssignment) {
+      // Dispatch the matched assignment to the store
+      dispatch(setAssignment(matchedAssignment));
+    }
+  }, [dispatch, assignments]);
 
   const navigate = useNavigate();
-
   const handleSave = () => {
-    console.log("Actually saving assignment TBD in later assignments");
+    dispatch(updateAssignment(assignment));
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
 
   return (
-    <div>
-      <div className="row main-body">
-        <div className="assignments-detail-form">
-          <form>
-            <div className="form-group">
-              <label htmlFor="formGroupExampleInput">Assignment Name</label>
+    <div className="flex-grow-1" style={{ margin: "20px 30px" }}>
+      <div>
+        <div className="d-flex">
+          <div
+            className="flex-grow-1"
+            style={{ marginLeft: "30px", marginRight: "30px" }}
+          >
+            <div className="wd-flex-row-container">
+              <div className="wd-flex-grow-1"></div>
+              <div className="d-flex float-end main-content-control">
+                <div className="flex-grow-1"></div>
+                <p
+                  style={{
+                    marginTop: "7px",
+                    marginRight: "10px",
+                    color: "green",
+                  }}
+                >
+                  <FaCircleCheck style={{ marginRight: "3px" }} />
+                  Published
+                </p>
+                <Button style={{ background: "#eeeeee", height: "38px" }}>
+                  <FaEllipsisVertical style={{ color: "black" }} />
+                </Button>
+              </div>
+            </div>
+            <div className="mb-3">
               <input
                 type="text"
                 className="form-control"
-                id="formGroupExampleInput"
-                value={assignmentName}
-                onChange={(e) => setAssignmentName(e.target.value)}
+                defaultValue={assignment.title}
+                placeholder="Enter title"
+                onChange={(e) =>
+                  dispatch(
+                    setAssignment({ ...assignment, title: e.target.value }),
+                  )
+                }
               />
             </div>
-            <div className="form-group">
+            <div className="mb-3">
               <textarea
+                defaultValue={assignment.description}
+                placeholder="Enter the Assignment Description"
                 className="form-control"
-                id="exampleFormControlTextarea1"
-                rows="3"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) =>
+                  dispatch(
+                    setAssignment({
+                      ...assignment,
+                      description: e.target.value,
+                    }),
+                  )
+                }
               />
             </div>
-            <div className="form-group row">
-              <label className="col-sm-2 col-form-label">Points</label>
-              <div className="col-sm-10">
-                <input
-                  className="form-control"
-                  placeholder="Points"
-                  value={points}
-                  onChange={(e) => setPoints(e.target.value)}
-                />
+            <div className="container">
+              <div className="row">
+                <div className="col-2">Points</div>
+                <div className="col-6">
+                  <input
+                    type="text"
+                    className="form-control"
+                    defaultValue={assignment.points}
+                    placeholder="Enter the points"
+                    onChange={(e) =>
+                      dispatch(
+                        setAssignment({
+                          ...assignment,
+                          points: e.target.value,
+                        }),
+                      )
+                    }
+                  />
+                </div>
+              </div>
+              <br />
+
+              <div className="row">
+                <div className="col-2">Due</div>
+                <div className="col-6">
+                  <input
+                    type="date"
+                    className="form-control"
+                    defaultValue={assignment.dueDate}
+                  />
+                  <br />
+                  <div className="row">
+                    <div className="col-3">
+                      Available From
+                      <input
+                        type="date"
+                        className="form-control"
+                        defaultValue={assignment.availableFrom}
+                      />
+                    </div>
+                    <div className="col-3">
+                      Available Until
+                      <input
+                        type="date"
+                        className="form-control"
+                        defaultValue={assignment.availableUntil}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <br />
+              <hr />
+              <div className="col float-end">
+                <button className="btn">
+                  <Link
+                    to={`/Kanbas/Courses/${courseId}/Assignments`}
+                    className="btn btn-secondary"
+                  >
+                    Cancel
+                  </Link>
+                </button>
+                <button className="btn btn-danger" onClick={handleSave}>
+                  Save
+                </button>
               </div>
             </div>
-            {/* Other form groups... */}
-            <div className="form-group row">
-              <label className="col-sm-2 col-form-label">
-                Display Grade as
-              </label>
-              <div className="col-sm-10">
-                <select
-                  className="form-select"
-                  value={gradeDisplay}
-                  onChange={(e) => setGradeDisplay(e.target.value)}
-                >
-                  <option value="Points">Points</option>
-                  <option value="Percentage">Percentage</option>
-                  <option value="Complete/Incomplete">
-                    Complete/Incomplete
-                  </option>
-                  {/* ... other options ... */}
-                </select>
-              </div>
-            </div>
-            <div className="form-group row">
-              <label className="col-sm-2 col-form-label">Submission Type</label>
-              <div className="col-sm-10">
-                <select
-                  className="form-select"
-                  value={submissionType}
-                  onChange={(e) => setSubmissionType(e.target.value)}
-                >
-                  <option value="Online">Online</option>
-                  {/* Add other options if available */}
-                </select>
-              </div>
-            </div>
-            <div className="form-group row">
-              <label htmlFor="duedate" className="col-form-label">
-                Due
-              </label>
-              <div className="col-sm-10">
-                <input
-                  type="date"
-                  name="duedate"
-                  id="duedate"
-                  value={dueDate}
-                  onChange={(e) => setDueDate(e.target.value)}
-                  className="form-control"
-                />
-              </div>
-            </div>
-            {/* ... further form fields ... */}
-            <button onClick={handleSave} className="btn btn-primary mt-2">
-              Save Assignment
-            </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default AssignmentEditor;
+export default CourseAssignmentEditor;

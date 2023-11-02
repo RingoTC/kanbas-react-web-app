@@ -1,5 +1,5 @@
-import db from "../database/index.js";
-import { Navigate, Route, Routes, useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, Navigate, Route, Routes, useParams } from "react-router-dom";
 import Menu from "../utilities/Menu";
 import Modules from "./Modules";
 import Home from "./Home";
@@ -7,9 +7,10 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Sidebar from "../utilities/Sidebar";
 import Grades from "./Grades";
-function Courses() {
+
+function Courses({ courses }) {
   const { courseId } = useParams();
-  let course = db.courses.find((course) => course._id === courseId);
+  const course = courses.find((course) => course.id === courseId);
   return (
     <div className="d-flex mb-3 flex-column main">
       <Menu />
@@ -20,7 +21,7 @@ function Courses() {
             <nav aria-label="breadcrumb align-self-center">
               <ol className="breadcrumb">
                 <li className="breadcrumb-item">
-                  <a href="#">CS5610.11744.202310</a>
+                  <a href="#">{course.name}</a>
                 </li>
                 <li className="breadcrumb-item active" aria-current="page">
                   Assignments
@@ -32,7 +33,7 @@ function Courses() {
       </div>
       <div className="row p-2 assignments">
         <div className="container-fluid sidebar col-2">
-          <p className="decription">202310 2 Fall 2022 Semesister</p>
+          <p className="decription">202310 2 Fall 2022 Semester</p>
           <div className="col-2">
             <Sidebar />
           </div>

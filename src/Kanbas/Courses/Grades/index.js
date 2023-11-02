@@ -1,12 +1,12 @@
 import React, { useMemo } from "react";
-import db from "../../database/index.js";
+import db from "../../Database/index.js";
 import { useParams } from "react-router-dom";
 
 function Grades() {
   const { courseId } = useParams();
 
   const assignments = useMemo(
-    () => db.assignments.filter((assignment) => assignment._id === courseId),
+    () => db.assignments.filter((assignment) => assignment.id === courseId),
     [courseId],
   );
 
@@ -80,9 +80,7 @@ function Grades() {
           {/* ... table headers ... */}
           <tbody>
             {enrollments.map((enrollment, index) => {
-              const user = db.users.find(
-                (user) => user._id === enrollment.user,
-              );
+              const user = db.users.find((user) => user.id === enrollment.user);
               return (
                 <tr key={index}>
                   <td>
@@ -92,7 +90,7 @@ function Grades() {
                     const grade = db.grades.find(
                       (grade) =>
                         grade.student === enrollment.user &&
-                        grade.assignment === assignment._id,
+                        grade.assignment === assignment.id,
                     );
                     return <td key={aIndex}>{grade?.grade || ""}</td>;
                   })}

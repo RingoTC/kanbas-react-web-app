@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./courseCard.css";
 function CourseCard(props) {
   return (
-    <div className="card course" key={props.id}>
+    <div key={props.id}>
       <Link
         key={props.id}
         to={`/Kanbas/Courses/${props.id}`}
@@ -32,9 +32,6 @@ function CourseCard(props) {
             ></i>
           </h5>
           <p className="card-text">{props.description}</p>
-          <button className="btn float-start">
-            <FontAwesomeIcon icon={faRightToBracket} />
-          </button>
         </div>
       </Link>
     </div>
