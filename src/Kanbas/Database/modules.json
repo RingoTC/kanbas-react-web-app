@@ -3,19 +3,19 @@
     "id": "M101",
     "name": "Introduction to Rocket Propulsion",
     "description": "Basic principles of rocket propulsion and rocket engines.",
-    "course": "A101"
+    "course": "RS101"
   },
   {
     "id": "M102",
     "name": "Fuel and Combustion",
     "description": "Understanding rocket fuel, combustion processes, and efficiency.",
-    "course": "A101"
+    "course": "RS101"
   },
   {
     "id": "M103",
     "name": "Nozzle Design",
     "description": "Principles of rocket nozzle design and performance optimization.",
-    "course": "A101"
+    "course": "RS101"
   },
   {
     "id": "M201",

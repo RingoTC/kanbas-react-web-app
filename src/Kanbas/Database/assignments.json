@@ -1,7 +1,7 @@
 [
-  { "id": "A101", "title": "Propulsion Assignment", "course": "A101" },
-  { "id": "A102", "title": "Combustion Analysis", "course": "A101" },
-  { "id": "A103", "title": "Nozzle Design Project", "course": "A101" },
+  { "id": "A101", "title": "Propulsion Assignment", "course": "RS101" },
+  { "id": "A102", "title": "Combustion Analysis", "course": "RS101" },
+  { "id": "A103", "title": "Nozzle Design Project", "course": "RS101" },
   { "id": "A201", "title": "Aerodynamics Quiz", "course": "RS102" },
   { "id": "A202", "title": "Flow Analysis", "course": "RS102" },
   { "id": "A203", "title": "Heating Analysis", "course": "RS102" },

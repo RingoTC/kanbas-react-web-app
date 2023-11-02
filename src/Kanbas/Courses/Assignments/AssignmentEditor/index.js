@@ -23,6 +23,12 @@ const CourseAssignmentEditor = () => {
   const dispatch = useDispatch();
   const { assignmentId, courseId } = useParams();
 
+  const navigate = useNavigate();
+  const handleSave = () => {
+    dispatch(updateAssignment(assignment));
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+  };
+
   useEffect(() => {
     // Find the assignment with the specific ID
     const matchedAssignment = assignments.find(
@@ -34,13 +40,21 @@ const CourseAssignmentEditor = () => {
       // Dispatch the matched assignment to the store
       dispatch(setAssignment(matchedAssignment));
     }
-  }, [dispatch, assignments]);
 
-  const navigate = useNavigate();
-  const handleSave = () => {
-    dispatch(updateAssignment(assignment));
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
-  };
+    return () => {
+      // Reset the assignment in the store
+      dispatch(
+        setAssignment({
+          title: "",
+          description: "",
+          points: "",
+          dueDate: "",
+          availableFrom: "",
+          availableUntil: "",
+        }),
+      );
+    };
+  }, [dispatch, assignments]);
 
   return (
     <div className="flex-grow-1" style={{ margin: "20px 30px" }}>

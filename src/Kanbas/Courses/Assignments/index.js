@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import db from "../../Database/index.js";
 import { useDispatch, useSelector } from "react-redux";
@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaBook, FaEllipsisVertical, FaPlus } from "react-icons/fa6";
 import { faGripVertical } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { deleteAssignment } from "./assignmentsReducer";
+import { deleteAssignment, setAssignment } from "./assignmentsReducer";
 
 function Assignments() {
   const { courseId } = useParams();
@@ -71,47 +71,51 @@ function Assignments() {
             className="list-group"
             style={{ borderRadius: "0", borderLeft: "5px solid green" }}
           >
-            {assignments.map((assignment) => (
-              <li className="list-group-item" key={assignment.id}>
-                <div className="flex-container">
-                  <div className="float-end">
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => dispatch(deleteAssignment(assignment.id))}
-                    >
-                      Delete
-                    </button>
-                  </div>
-                  <FontAwesomeIcon
-                    icon={faGripVertical}
-                    style={{ marginRight: "20px" }}
-                  />
-                  <FaBook style={{ color: "green", marginRight: "10px" }} />
-                  <span style={{ display: "inline" }}>
-                    <strong>
-                      <Link
-                        to={`/Kanbas/Courses/${courseId}/Assignments/${assignment.id}`}
-                        style={{ color: "black" }}
+            {assignments
+              .filter((module) => module.course === courseId)
+              .map((assignment) => (
+                <li className="list-group-item" key={assignment.id}>
+                  <div className="flex-container">
+                    <div className="float-end">
+                      <button
+                        className="btn btn-danger"
+                        onClick={() =>
+                          dispatch(deleteAssignment(assignment.id))
+                        }
                       >
-                        <strong>{assignment.title}</strong>
-                      </Link>
-                    </strong>
-                  </span>
-                  <div
-                    style={{
-                      marginLeft: "70px",
-                      color: "#686464",
-                      width: "600px",
-                    }}
-                  >
-                    <span style={{ fontSize: "15px", marginBottom: "1px" }}>
-                      {assignment?.description}
+                        Delete
+                      </button>
+                    </div>
+                    <FontAwesomeIcon
+                      icon={faGripVertical}
+                      style={{ marginRight: "20px" }}
+                    />
+                    <FaBook style={{ color: "green", marginRight: "10px" }} />
+                    <span style={{ display: "inline" }}>
+                      <strong>
+                        <Link
+                          to={`/Kanbas/Courses/${courseId}/Assignments/${assignment.id}`}
+                          style={{ color: "black" }}
+                        >
+                          <strong>{assignment.title}</strong>
+                        </Link>
+                      </strong>
                     </span>
-                    <p>{assignment.due}</p>
+                    <div
+                      style={{
+                        marginLeft: "70px",
+                        color: "#686464",
+                        width: "600px",
+                      }}
+                    >
+                      <span style={{ fontSize: "15px", marginBottom: "1px" }}>
+                        {assignment?.description}
+                      </span>
+                      <p>{assignment.due}</p>
+                    </div>
                   </div>
-                </div>
-              </li>
-            ))}
+                </li>
+              ))}
           </ul>
         </ul>
         <br />
