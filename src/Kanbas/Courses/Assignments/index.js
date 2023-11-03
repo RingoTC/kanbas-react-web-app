@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import db from "../../Database/index.js";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,7 +33,24 @@ function Assignments() {
               <FaPlus />
               Group
             </button>
-            <button className="btn btn-danger">
+            <button
+              onClick={() =>
+                dispatch(
+                  setAssignment({
+                    title: "",
+                    description: "",
+                    points: "",
+                    dueDate: "",
+                    availableFrom: "",
+                    availableUntil: "",
+                  }),
+                  window.location.assign(
+                    `/#/Kanbas/Courses/${courseId}/Assignments/New`,
+                  ),
+                )
+              }
+              className="btn btn-danger"
+            >
               <FaPlus />
               Assignment
             </button>

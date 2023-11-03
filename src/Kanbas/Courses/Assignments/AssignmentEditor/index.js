@@ -24,8 +24,16 @@ const CourseAssignmentEditor = () => {
   const navigate = useNavigate();
 
   const handleSave = () => {
-    dispatch(updateAssignment(assignment));
-    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+    const matchedAssignment = assignments.find(
+      (item) => item.id === assignmentId,
+    );
+    if (matchedAssignment) {
+      dispatch(updateAssignment(assignment));
+    } else {
+      dispatch(addAssignment(assignment));
+      console.log(assignments);
+    }
+    //navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
 
   useEffect(() => {
@@ -38,8 +46,13 @@ const CourseAssignmentEditor = () => {
     if (matchedAssignment) {
       // Dispatch the matched assignment to the store
       dispatch(setAssignment(matchedAssignment));
+    } else {
+      dispatch(
+        setAssignment({
+          course: courseId,
+        }),
+      );
     }
-
     return () => {
       // Reset the assignment in the store
       dispatch(
