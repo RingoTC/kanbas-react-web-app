@@ -82,9 +82,15 @@ function Assignments() {
                     <div className="float-end">
                       <button
                         className="btn btn-danger"
-                        onClick={() =>
-                          dispatch(deleteAssignment(assignment.id))
-                        }
+                        onClick={() => {
+                          if (
+                            window.confirm(
+                              "Are you sure you want to delete this assignment?",
+                            )
+                          ) {
+                            dispatch(deleteAssignment(assignment.id));
+                          }
+                        }}
                       >
                         Delete
                       </button>
