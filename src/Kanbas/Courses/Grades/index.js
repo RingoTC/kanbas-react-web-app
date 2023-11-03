@@ -19,12 +19,12 @@ function Grades() {
     <div className="container-fluid grades">
       <div className="row grades_control">
         <div className="d-flex justify-content-end">
-          <button className="btn btn-secondary btn-default">
+          <button className="btn btn-default">
             <i className="fa-solid fa-indent"></i> Import
           </button>
           <div className="dropdown">
             <button
-              className="btn btn-secondary btn-default dropdown-toggle"
+              className="btn btn-default dropdown-toggle"
               type="button"
               id="dropdownMenuButton"
               data-toggle="dropdown"
@@ -45,7 +45,7 @@ function Grades() {
               </a>
             </div>
           </div>
-          <button className="btn btn-secondary btn-default">
+          <button className="btn btn-default">
             <i className="fa-solid fa-gear"></i>
           </button>
         </div>

@@ -21,11 +21,11 @@
 }
 
 #navbar .nav-item .nav-link {
-    padding-left: 10px;
-    margin-bottom: 15px;
+    padding: 5px 0px 5px 0px;
+    margin: 0 0 15px;
 }
 #navbar .nav-item .active {
-    text-align: left;
+    text-align: center;
     background: #ffffff;
 }
 #navbar .nav-item .active .menu-text {

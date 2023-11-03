@@ -51,7 +51,7 @@ function home() {
             ></i>
             Module
           </button>
-          <button type="button" className="btn btn-secondary btn-default">
+          <button type="button" className="btn btn-default">
             <FontAwesomeIcon icon={faEllipsisVertical} />
           </button>
         </div>
@@ -70,7 +70,7 @@ function home() {
                 <ul className="nav">
                   <li>
                     <div className="parallel-buttons">
-                      <button className="btn btn-secondary btn-default">
+                      <button className="btn btn-default">
                         <i className="fa-solid fa-ban"></i>
                         Unpublish
                       </button>
@@ -81,37 +81,35 @@ function home() {
                     </div>
                   </li>
                   <li>
-                    <button className="btn btn-secondary btn-default">
+                    <button className="btn btn-default">
                       Import Existing Content
                     </button>
                   </li>
                   <li>
-                    <button className="btn btn-secondary btn-default">
+                    <button className="btn btn-default">
                       Import from Commons
                     </button>
                   </li>
                   <li>
-                    <button className="btn btn-secondary btn-default">
+                    <button className="btn btn-default">
                       Choose Home Page
                     </button>
                   </li>
                   <li>
-                    <button className="btn btn-secondary btn-default">
+                    <button className="btn btn-default">
                       View Course Stream
                     </button>
                   </li>
                   <li>
-                    <button className="btn btn-secondary btn-default">
+                    <button className="btn btn-default">
                       New Announcement
                     </button>
                   </li>
                   <li>
-                    <button className="btn btn-secondary btn-default">
-                      New Analytics
-                    </button>
+                    <button className="btn btn-default">New Analytics</button>
                   </li>
                   <li>
-                    <button className="btn btn-secondary btn-default">
+                    <button className="btn btn-default">
                       View Course Notifications
                     </button>
                   </li>
