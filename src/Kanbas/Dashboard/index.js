@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Navigate } from "react-router-dom";
 import CourseCard from "../utilities/components/CourseCard";
+import axios from "axios";
 
 function Dashboard({
   courses,
@@ -10,6 +11,7 @@ function Dashboard({
   deleteCourse,
   updateCourse,
 }) {
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setCourse((prevCourse) => ({
@@ -19,7 +21,7 @@ function Dashboard({
   };
 
   const editCourse = (id) => {
-    const selectedCourse = courses.find((course) => course.id === id);
+    const selectedCourse = courses.find((course) => course._id === id);
     setCourse(selectedCourse);
   };
 
@@ -66,7 +68,7 @@ function Dashboard({
             className="form-control"
           />
         </div>
-        {course.id ? (
+        {course._id ? (
           <button
             type="button"
             onClick={updateCourse}
@@ -88,21 +90,21 @@ function Dashboard({
       <h3>Published Courses</h3>
       <div className="dashboard-body courses d-flex flex-row flex-wrap">
         {courses.map((course) => (
-          <div key={course.id} className="course-card card course">
+          <div key={course._id} className="course-card card course">
             <CourseCard
               name={course.name}
               description={course.description}
-              id={course.id}
+              id={course._id}
             />
             <div className="btn-group">
               <button
-                onClick={() => editCourse(course.id)}
+                onClick={() => editCourse(course._id)}
                 className="btn btn-warning"
               >
                 Edit
               </button>
               <button
-                onClick={() => deleteCourse(course.id)}
+                onClick={() => deleteCourse(course._id)}
                 className="btn btn-danger"
               >
                 Delete

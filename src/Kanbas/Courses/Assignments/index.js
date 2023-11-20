@@ -6,7 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaBook, FaEllipsisVertical, FaPlus } from "react-icons/fa6";
 import { faGripVertical } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-import { deleteAssignment, setAssignment } from "./assignmentsReducer";
+import {
+  setAssignment,
+  setAssignments,
+  deleteAssignment,
+} from "./assignmentsReducer";
+import * as client from "./client";
+import { findAssignmentsForCourse } from "./client";
 
 function Assignments() {
   const { courseId } = useParams();
@@ -15,6 +21,12 @@ function Assignments() {
     (state) => state.assignmentsReducer.assignments,
   );
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    client
+      .findAssignmentsForCourse(courseId)
+      .then((assignments) => dispatch(setAssignments(assignments)));
+  }, [courseId]);
 
   return (
     <div>
@@ -37,12 +49,12 @@ function Assignments() {
               onClick={() =>
                 dispatch(
                   setAssignment({
-                    title: "",
-                    description: "",
-                    points: "",
-                    dueDate: "",
-                    availableFrom: "",
-                    availableUntil: "",
+                    name: "New Assignment",
+                    description: "New Assignment",
+                    dueDate: "2023-12-12T23:59:00Z",
+                    availableFromDate: "2023-12-12T23:59:00Z",
+                    availableUntilDate: "2023-12-12T23:59:00Z",
+                    course: courseId,
                   }),
                   window.location.assign(
                     `/#/Kanbas/Courses/${courseId}/Assignments/New`,
@@ -77,7 +89,7 @@ function Assignments() {
             {assignments
               .filter((module) => module.course === courseId)
               .map((assignment) => (
-                <li className="list-group-item" key={assignment.id}>
+                <li className="list-group-item" key={assignment._id}>
                   <div className="flex-container">
                     <div className="float-end">
                       <button
@@ -88,7 +100,7 @@ function Assignments() {
                               "Are you sure you want to delete this assignment?",
                             )
                           ) {
-                            dispatch(deleteAssignment(assignment.id));
+                            dispatch(deleteAssignment(assignment._id));
                           }
                         }}
                       >
@@ -100,7 +112,7 @@ function Assignments() {
                     <span>
                       <strong>
                         <Link
-                          to={`/Kanbas/Courses/${courseId}/Assignments/${assignment.id}`}
+                          to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
                           style={{ color: "black" }}
                         >
                           <strong>{assignment.title}</strong>

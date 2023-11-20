@@ -7,11 +7,26 @@ import {
   deleteAssignment,
   updateAssignment,
   setAssignment,
+  setAssignments,
 } from "../assignmentsReducer";
+import * as client from "../client";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { findModulesForCourse } from "../../Modules/client";
+import { setModules } from "../../Modules/modulesReducer";
+import { findAssignmentById, findAssignmentsForCourse } from "../client";
 
 const CourseAssignmentEditor = () => {
+  const dispatch = useDispatch();
+  const { assignmentId, courseId } = useParams();
+  const navigate = useNavigate();
+
+  const convertTimeFormate = (Time) => {
+    if (!Time) return "";
+    const date = new Date(Time);
+    return date.toISOString().split("T")[0];
+  };
+
   const assignments = useSelector(
     (state) => state.assignmentsReducer.assignments,
   );
@@ -19,54 +34,40 @@ const CourseAssignmentEditor = () => {
     (state) => state.assignmentsReducer.assignment,
   );
 
-  const dispatch = useDispatch();
-  const { assignmentId, courseId } = useParams();
-  const navigate = useNavigate();
+  const handleSave = async () => {
+    assignmentId === "New"
+      ? await handleAddAssignment()
+      : await handleUpdateAssignment(assignmentId);
+  };
 
-  const handleSave = () => {
-    const matchedAssignment = assignments.find(
-      (item) => item.id === assignmentId,
-    );
-    if (matchedAssignment) {
-      dispatch(updateAssignment(assignment));
-    } else {
-      dispatch(addAssignment(assignment));
-      console.log(assignments);
-    }
-    //navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+  const handleDateChange = (field) => (e) => {
+    dispatch(setAssignment({ ...assignment, [field]: e.target.value }));
+  };
+
+  const handleAddAssignment = () => {
+    console.log(assignment);
+    client.createAssignment(courseId, assignment).then((assignment) => {
+      dispatch(addAssignment({ ...assignment, course: courseId }));
+    });
+  };
+  const handleDeleteAssignment = (assignmentId) => {
+    client.deleteAssignment(assignmentId).then((status) => {
+      dispatch(deleteAssignment(assignmentId));
+    });
+  };
+  const handleUpdateAssignment = async () => {
+    const status = await client.updateAssignment({
+      _id: assignmentId,
+      assignment,
+    });
+    dispatch(updateAssignment(assignment));
   };
 
   useEffect(() => {
-    // Find the assignment with the specific ID
-    const matchedAssignment = assignments.find(
-      (item) => item.id === assignmentId,
+    findAssignmentById(assignmentId).then((assignment) =>
+      dispatch(setAssignment(assignment)),
     );
-
-    // Check if a match was found
-    if (matchedAssignment) {
-      // Dispatch the matched assignment to the store
-      dispatch(setAssignment(matchedAssignment));
-    } else {
-      dispatch(
-        setAssignment({
-          course: courseId,
-        }),
-      );
-    }
-    return () => {
-      // Reset the assignment in the store
-      dispatch(
-        setAssignment({
-          title: "",
-          description: "",
-          points: "",
-          dueDate: "",
-          availableFrom: "",
-          availableUntil: "",
-        }),
-      );
-    };
-  }, [dispatch, assignments]);
+  }, [assignmentId]);
 
   return (
     <div className="container mt-4">
@@ -88,7 +89,7 @@ const CourseAssignmentEditor = () => {
             <input
               type="text"
               className="form-control"
-              defaultValue={assignment.title}
+              defaultValue={assignment.name}
               placeholder="Enter title"
               onChange={(e) =>
                 dispatch(
@@ -137,7 +138,7 @@ const CourseAssignmentEditor = () => {
               <input
                 type="date"
                 className="form-control"
-                defaultValue={assignment.dueDate}
+                defaultValue={convertTimeFormate(assignment.dueDate)}
               />
               <div className="row mt-2">
                 <div className="col-6">
@@ -145,7 +146,9 @@ const CourseAssignmentEditor = () => {
                   <input
                     type="date"
                     className="form-control"
-                    defaultValue={assignment.availableFrom}
+                    defaultValue={convertTimeFormate(
+                      assignment.availableFromDate,
+                    )}
                   />
                 </div>
                 <div className="col-6">
@@ -153,7 +156,9 @@ const CourseAssignmentEditor = () => {
                   <input
                     type="date"
                     className="form-control"
-                    defaultValue={assignment.availableUntil}
+                    defaultValue={convertTimeFormate(
+                      assignment.availableUntilDate,
+                    )}
                   />
                 </div>
               </div>
@@ -161,13 +166,13 @@ const CourseAssignmentEditor = () => {
           </div>
           <hr />
           <div className="d-flex justify-content-end">
-            <button className="btn btn-secondary me-2">
-              <Link
-                to={`/Kanbas/Courses/${courseId}/Assignments`}
-                className="text-white text-decoration-none"
-              >
-                Cancel
-              </Link>
+            <button
+              className="btn btn-secondary me-2"
+              onClick={() => {
+                navigate(`/Kanbas/Courses/${courseId}/Assignments`);
+              }}
+            >
+              Cancel
             </button>
             <button className="btn btn-danger" onClick={handleSave}>
               Save

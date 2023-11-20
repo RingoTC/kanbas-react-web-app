@@ -34,7 +34,7 @@ function AssignmentsCard({ courseAssignments, courseId }) {
           {courseAssignments.map((assignment) => (
             <li
               className="list-group-item d-flex justify-content-between align-items-center"
-              key={assignment.id}
+              key={assignment._id}
             >
               <Icon
                 className="fa-solid fa-grip-vertical"
@@ -46,7 +46,7 @@ function AssignmentsCard({ courseAssignments, courseId }) {
               />
               <div>
                 <Link
-                  to={`/Kanbas/Courses/${courseId}/Assignments/${assignment.id}`}
+                  to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
                 >
                   <h1>{assignment.title}</h1>
                 </Link>

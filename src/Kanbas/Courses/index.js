@@ -7,10 +7,22 @@ import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 import Sidebar from "../utilities/Sidebar";
 import Grades from "./Grades";
+import axios from "axios";
+
+const API_BASE =
+  "https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/api/courses";
 
 function Courses({ courses }) {
   const { courseId } = useParams();
-  const course = courses.find((course) => course.id === courseId);
+  const [course, setCourse] = useState({});
+  const findCourseById = async (courseId) => {
+    const response = await axios.get(`${API_BASE}/${courseId}`);
+    setCourse(response.data);
+  };
+  useEffect(() => {
+    findCourseById(courseId);
+  }, [courseId]);
+
   return (
     <div className="d-flex mb-3 flex-column main">
       <Menu />

@@ -6,7 +6,7 @@ function Grades() {
   const { courseId } = useParams();
 
   const assignments = useMemo(
-    () => db.assignments.filter((assignment) => assignment.id === courseId),
+    () => db.assignments.filter((assignment) => assignment._id === courseId),
     [courseId],
   );
 
@@ -90,7 +90,7 @@ function Grades() {
                     const grade = db.grades.find(
                       (grade) =>
                         grade.student === enrollment.user &&
-                        grade.assignment === assignment.id,
+                        grade.assignment === assignment._id,
                     );
                     return <td key={aIndex}>{grade?.grade || ""}</td>;
                   })}
