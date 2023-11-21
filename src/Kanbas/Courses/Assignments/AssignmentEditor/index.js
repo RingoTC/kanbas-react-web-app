@@ -38,6 +38,7 @@ const CourseAssignmentEditor = () => {
     assignmentId === "New"
       ? await handleAddAssignment()
       : await handleUpdateAssignment(assignmentId);
+    navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
 
   const handleDateChange = (field) => (e) => {
