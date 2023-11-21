@@ -5,9 +5,9 @@ const initialState = {
   assignment: {
     name: "New Assignment 123",
     description: "New Description",
-    dueDate: "2023-12-01T23:59:00Z",
-    availableFromDate: "2023-12-01T23:59:00Z",
-    availableUntilDate: "2023-12-01T23:59:00Z",
+    dueDate: "2023-11-01T23:59:00Z",
+    availableFromDate: "2023-11-01T23:59:00Z",
+    availableUntilDate: "2023-11-01T23:59:00Z",
   },
 };
 
