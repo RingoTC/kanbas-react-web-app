@@ -12,15 +12,12 @@ import {
 import * as client from "../client";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { findModulesForCourse } from "../../Modules/client";
-import { setModules } from "../../Modules/modulesReducer";
-import { findAssignmentById, findAssignmentsForCourse } from "../client";
+import { findAssignmentById } from "../client";
 
 const CourseAssignmentEditor = () => {
   const dispatch = useDispatch();
   const { assignmentId, courseId } = useParams();
   const navigate = useNavigate();
-
   const convertTimeFormate = (Time) => {
     if (!Time) return "";
     const date = new Date(Time);
@@ -46,13 +43,12 @@ const CourseAssignmentEditor = () => {
   };
 
   const handleAddAssignment = () => {
-    console.log(assignment);
     client.createAssignment(courseId, assignment).then((assignment) => {
       dispatch(addAssignment({ ...assignment, course: courseId }));
     });
   };
   const handleDeleteAssignment = (assignmentId) => {
-    client.deleteAssignment(assignmentId).then((status) => {
+    client.removeAssignment(assignmentId).then((status) => {
       dispatch(deleteAssignment(assignmentId));
     });
   };
@@ -65,9 +61,13 @@ const CourseAssignmentEditor = () => {
   };
 
   useEffect(() => {
-    findAssignmentById(assignmentId).then((assignment) =>
-      dispatch(setAssignment(assignment)),
-    );
+    if (assignmentId === "New") {
+      dispatch(setAssignment({}));
+    } else {
+      findAssignmentById(assignmentId).then((assignment) => {
+        dispatch(setAssignment(assignment));
+      });
+    }
   }, [assignmentId]);
 
   return (
@@ -93,9 +93,7 @@ const CourseAssignmentEditor = () => {
               defaultValue={assignment.name}
               placeholder="Enter title"
               onChange={(e) =>
-                dispatch(
-                  setAssignment({ ...assignment, title: e.target.value }),
-                )
+                dispatch(setAssignment({ ...assignment, name: e.target.value }))
               }
             />
           </div>

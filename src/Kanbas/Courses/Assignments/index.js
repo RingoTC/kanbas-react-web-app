@@ -12,8 +12,7 @@ import {
   deleteAssignment,
 } from "./assignmentsReducer";
 import * as client from "./client";
-import { findAssignmentsForCourse } from "./client";
-
+import { removeAssignment } from "./client";
 function Assignments() {
   const { courseId } = useParams();
 
@@ -100,7 +99,11 @@ function Assignments() {
                               "Are you sure you want to delete this assignment?",
                             )
                           ) {
-                            dispatch(deleteAssignment(assignment._id));
+                            client
+                              .removeAssignment(assignment._id)
+                              .then((status) => {
+                                dispatch(deleteAssignment(assignment._id));
+                              });
                           }
                         }}
                       >
@@ -115,12 +118,12 @@ function Assignments() {
                           to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
                           style={{ color: "black" }}
                         >
-                          <strong>{assignment.title}</strong>
+                          <strong>{assignment.name}</strong>
                         </Link>
                       </strong>
                     </span>
                     <div>
-                      <span>{assignment?.description}</span>
+                      <span>{assignment.description}</span>
                     </div>
                   </div>
                 </li>

@@ -1,7 +1,5 @@
 import axios from "axios";
-const API_BASE =
-  process.env.API_BASE ||
-  "https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com";
+const API_BASE = process.env.API_BASE || "http://localhost:4000";
 const COURSES_URL = `${API_BASE}/api/courses`;
 const ASSIGNMENTS_URL = `${API_BASE}/api/assignments`;
 export const findAssignmentsForCourse = async (courseId) => {
@@ -20,7 +18,7 @@ export const createAssignment = async (courseId, assignment) => {
   );
   return response.data;
 };
-export const deleteAssignment = async (assignmentId) => {
+export const removeAssignment = async (assignmentId) => {
   const response = await axios.delete(`${ASSIGNMENTS_URL}/${assignmentId}`);
   return response.data;
 };
