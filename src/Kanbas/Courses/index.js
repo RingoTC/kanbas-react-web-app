@@ -9,7 +9,8 @@ import Sidebar from "../utilities/Sidebar";
 import Grades from "./Grades";
 import axios from "axios";
 
-const API_BASE = "http://localhost:4000/api/courses";
+const API_BASE =
+  "http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/api/courses";
 
 function Courses({ courses }) {
   const { courseId } = useParams();

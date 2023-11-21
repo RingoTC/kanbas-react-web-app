@@ -15,8 +15,10 @@ import {
   editModule,
 } from "./client";
 
-const COURSE_URL = "http://localhost:4000/api/courses";
-const MODULES_URL = "http://localhost:4000/api/modules";
+const COURSE_URL =
+  "http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/api/courses";
+const MODULES_URL =
+  "http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/api/modules";
 
 function ModuleList() {
   const modules = useSelector((state) => state.modulesReducer.modules);
