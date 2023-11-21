@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 function WorkingWithArrays() {
-  const API =
+  const [errorMessage, setErrorMessage] = useState(null);
+  const API_BASE =
     "https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/a5/todos";
   const [todo, setTodo] = useState({
     id: 1,
@@ -14,53 +15,112 @@ function WorkingWithArrays() {
   const [todos, setTodos] = useState([]);
 
   const postTodo = async () => {
-    const response = await axios.post(API, todo);
-    setTodos([...todos, response.data]);
+    try {
+      const response = await axios.post(API_BASE, todo);
+      setTodos((prevTodos) => [...prevTodos, response.data]);
+    } catch (error) {
+      console.error("ERROR:", error);
+      setErrorMessage(
+        error.response?.data?.message ||
+          "An error occurred while adding a todo",
+      );
+    }
   };
 
-  const [errorMessage, setErrorMessage] = useState(null);
   const deleteTodo = async (todo) => {
     try {
-      const response = await axios.delete(`${API}/${todo.id}`);
-      setTodos(todos.filter((t) => t.id !== todo.id));
+      await axios.delete(`${API_BASE}/${todo.id}`);
+      setTodos((prevTodos) => prevTodos.filter((t) => t.id !== todo.id));
     } catch (error) {
-      console.log("ERROR:", error);
-      setErrorMessage(error.response.data.message);
+      console.error("ERROR:", error);
+      setErrorMessage(
+        error.response?.data?.message ||
+          "An error occurred while deleting a todo",
+      );
     }
   };
 
   const updateTodo = async () => {
     try {
-      const response = await axios.put(`${API}/${todo.id}`, todo);
-      setTodos(todos.map((t) => (t.id === todo.id ? todo : t)));
+      const response = await axios.put(`${API_BASE}/${todo.id}`, todo);
+      setTodos((prevTodos) =>
+        prevTodos.map((t) => (t.id === todo.id ? response.data : t)),
+      );
       setTodo({});
     } catch (error) {
-      console.log("ERROR:", error);
-      setErrorMessage(error.response.data.message);
+      console.error("ERROR:", error);
+      setErrorMessage(
+        error.response?.data?.message ||
+          "An error occurred while updating a todo",
+      );
     }
   };
 
   const fetchTodos = async () => {
-    const response = await axios.get(API);
-    setTodos(response.data);
+    try {
+      const response = await axios.get(API_BASE);
+      setTodos(response.data);
+    } catch (error) {
+      console.error("ERROR:", error);
+      setErrorMessage(
+        error.response?.data?.message ||
+          "An error occurred while fetching todos",
+      );
+    }
   };
+
   const fetchTodoById = async (id) => {
-    const response = await axios.get(`${API}/${id}`);
-    setTodo(response.data);
+    try {
+      const response = await axios.get(`${API_BASE}/${id}`);
+      setTodo(response.data);
+    } catch (error) {
+      console.error("ERROR:", error);
+      setErrorMessage(
+        error.response?.data?.message ||
+          "An error occurred while fetching a todo",
+      );
+    }
   };
 
   const removeTodo = async (todo) => {
-    const response = await axios.get(`${API}/${todo.id}/delete`);
-    setTodos(response.data);
+    try {
+      const response = await axios.get(`${API_BASE}/${todo.id}/delete`);
+      setTodos(response.data);
+    } catch (error) {
+      console.error("ERROR:", error);
+      setErrorMessage(
+        error.response?.data?.message ||
+          "An error occurred while removing a todo",
+      );
+    }
   };
+
   const createTodo = async () => {
-    const response = await axios.get(`${API}/create`);
-    setTodos(response.data);
+    try {
+      const response = await axios.get(`${API_BASE}/create`);
+      setTodos(response.data);
+    } catch (error) {
+      console.error("ERROR:", error);
+      setErrorMessage(
+        error.response?.data?.message ||
+          "An error occurred while creating a todo",
+      );
+    }
   };
 
   const updateTitle = async () => {
-    const response = await axios.get(`${API}/${todo.id}/title/${todo.title}`);
-    setTodos(response.data);
+    try {
+      const response = await axios.get(
+        `${API_BASE}/${todo.id}/title/${todo.title}`,
+      );
+      setTodos(response.data);
+    } catch (error) {
+      console.error("ERROR:", error);
+      setErrorMessage(
+        error.response?.data?.message ||
+          "An error occurred while updating the title",
+      );
+    }
   };
 
   useEffect(() => {
@@ -128,18 +188,18 @@ function WorkingWithArrays() {
         />
         Completed
       </label>
-      <button onClick={postTodo} className="btn btn-warning mb-2 w-100">
+      <button onClick={postTodo} className="btn btn-primary mb-2 w-100">
         Post Todo
       </button>
 
-      <button onClick={updateTodo} className="btn btn-secondary mb-2 w-100">
+      <button onClick={updateTodo} className="btn btn-primary mb-2 w-100">
         Update Todo
       </button>
 
       <button onClick={createTodo} className="btn btn-primary mb-2 w-100">
         Create Todo
       </button>
-      <button onClick={updateTitle} className="btn btn-success mb-2 w-100">
+      <button onClick={updateTitle} className="btn btn-primary mb-2 w-100">
         Update Title
       </button>
       {errorMessage && (
@@ -150,7 +210,7 @@ function WorkingWithArrays() {
           <li key={todo.id} className="list-group-item">
             <button
               onClick={() => fetchTodoById(todo.id)}
-              className="btn btn-warning me-2 float-end"
+              className="btn btn-primary me-2 float-end"
             >
               Edit
             </button>
@@ -175,27 +235,27 @@ function WorkingWithArrays() {
       </ul>
       <h3>Updating an Item in an Array</h3>
       <a
-        href={`${API}/${todo.id}/title/${todo.title}`}
+        href={`${API_BASE}/${todo.id}/title/${todo.title}`}
         className="btn btn-primary me-2"
       >
         Update Title to {todo.title}
       </a>
       <h3>Completing Todo Item</h3>
       <a
-        href={`${API}/${todo.id}/completed/true`}
+        href={`${API_BASE}/${todo.id}/completed/true`}
         className="btn btn-primary me-2"
       >
         Complete Todo ID = {todo.id}
       </a>
       <h3>Describing Todo Item</h3>
       <a
-        href={`${API}/${todo.id}/description/test description`}
+        href={`${API_BASE}/${todo.id}/description/test description`}
         className="btn btn-primary me-2"
       >
         Describe Todo with ID = {todo.id}
       </a>
       <h4>Retrieving Arrays</h4>
-      <a href={API} className="btn btn-primary me-2">
+      <a href={API_BASE} className="btn btn-primary me-2">
         Get Todos
       </a>
       <h4>Retrieving an Item from an Array by ID</h4>
@@ -209,15 +269,15 @@ function WorkingWithArrays() {
           })
         }
       />
-      <a href={`${API}/${todo.id}`} className="btn btn-primary me-2">
+      <a href={`${API_BASE}/${todo.id}`} className="btn btn-primary me-2">
         Get Todo by ID
       </a>
       <h3>Filtering Array Items</h3>
-      <a href={`${API}?completed=true`} className="btn btn-primary me-2">
+      <a href={`${API_BASE}?completed=true`} className="btn btn-primary me-2">
         Get Completed Todos
       </a>
       <h4>Creating new Items in an Array</h4>
-      <a href={`${API}/create`} className="btn btn-primary me-2">
+      <a href={`${API_BASE}/create`} className="btn btn-primary me-2">
         Create Todo
       </a>
     </div>
