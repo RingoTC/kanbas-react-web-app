@@ -2,13 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   assignments: [],
-  assignment: {
-    name: "New Assignment 123",
-    description: "New Description",
-    dueDate: "2023-11-01T23:59:00Z",
-    availableFromDate: "2023-11-01T23:59:00Z",
-    availableUntilDate: "2023-11-01T23:59:00Z",
-  },
+  assignment: {},
 };
 
 const assignmentsSlice = createSlice({
@@ -36,7 +30,7 @@ const assignmentsSlice = createSlice({
       });
     },
     setAssignment: (state, action) => {
-      state.assignment = action.payload;
+      state.assignment = { ...state.assignment, ...action.payload };
     },
     setAssignments: (state, action) => {
       state.assignments = action.payload;

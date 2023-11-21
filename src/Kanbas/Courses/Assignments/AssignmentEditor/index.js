@@ -38,10 +38,6 @@ const CourseAssignmentEditor = () => {
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
 
-  const handleDateChange = (field) => (e) => {
-    dispatch(setAssignment({ ...assignment, [field]: e.target.value }));
-  };
-
   const handleAddAssignment = () => {
     client.createAssignment(courseId, assignment).then((assignment) => {
       dispatch(addAssignment({ ...assignment, course: courseId }));
@@ -61,14 +57,34 @@ const CourseAssignmentEditor = () => {
   };
 
   useEffect(() => {
-    if (assignmentId === "New") {
-      dispatch(setAssignment({}));
-    } else {
-      findAssignmentById(assignmentId).then((assignment) => {
-        dispatch(setAssignment(assignment));
-      });
-    }
-  }, [assignmentId]);
+    const fetchData = async () => {
+      if (assignmentId === "New") {
+        dispatch(
+          setAssignment({
+            title: "",
+            description: "",
+            points: "",
+            dueDate: "",
+            availableFrom: "",
+            availableUntil: "",
+          }),
+        );
+      } else {
+        try {
+          const assignment = await findAssignmentById(assignmentId).then(
+            (assignment) => {
+              dispatch(setAssignment(assignment));
+            },
+          );
+        } catch (error) {
+          console.error("Error fetching assignment:", error);
+        } finally {
+        }
+      }
+    };
+
+    fetchData();
+  }, [assignmentId, dispatch]);
 
   return (
     <div className="container mt-4">
@@ -90,7 +106,7 @@ const CourseAssignmentEditor = () => {
             <input
               type="text"
               className="form-control"
-              defaultValue={assignment.name}
+              value={assignment.name}
               placeholder="Enter title"
               onChange={(e) =>
                 dispatch(setAssignment({ ...assignment, name: e.target.value }))
@@ -99,7 +115,7 @@ const CourseAssignmentEditor = () => {
           </div>
           <div className="mb-3">
             <textarea
-              defaultValue={assignment.description}
+              value={assignment.description}
               placeholder="Enter the Assignment Description"
               className="form-control"
               onChange={(e) =>
@@ -118,7 +134,7 @@ const CourseAssignmentEditor = () => {
               <input
                 type="text"
                 className="form-control"
-                defaultValue={assignment.points}
+                value={assignment.points}
                 placeholder="Enter the points"
                 onChange={(e) =>
                   dispatch(
@@ -137,7 +153,7 @@ const CourseAssignmentEditor = () => {
               <input
                 type="date"
                 className="form-control"
-                defaultValue={convertTimeFormate(assignment.dueDate)}
+                value={convertTimeFormate(assignment.dueDate)}
               />
               <div className="row mt-2">
                 <div className="col-6">
@@ -145,9 +161,7 @@ const CourseAssignmentEditor = () => {
                   <input
                     type="date"
                     className="form-control"
-                    defaultValue={convertTimeFormate(
-                      assignment.availableFromDate,
-                    )}
+                    value={convertTimeFormate(assignment.availableFromDate)}
                   />
                 </div>
                 <div className="col-6">
@@ -155,9 +169,7 @@ const CourseAssignmentEditor = () => {
                   <input
                     type="date"
                     className="form-control"
-                    defaultValue={convertTimeFormate(
-                      assignment.availableUntilDate,
-                    )}
+                    value={convertTimeFormate(assignment.availableUntilDate)}
                   />
                 </div>
               </div>
