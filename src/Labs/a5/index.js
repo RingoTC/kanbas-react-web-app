@@ -5,7 +5,7 @@ import WorkingWithObjects from "./assignment/WorkingWithObjects.js";
 
 const Assignment5 = () => {
   const getUrl = (path) =>
-    `http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com${path}`;
+    `https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com${path}`;
 
   return (
     <div>

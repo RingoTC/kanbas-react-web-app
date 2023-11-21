@@ -20,13 +20,13 @@ function EncodingParametersInURLs() {
       />
       <h3>Path Parameters</h3>
       <a
-        href={`http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/a5/add/${a}/${b}`}
+        href={`https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/a5/add/${a}/${b}`}
         className="btn btn-primary"
       >
         Add {a} + {b}
       </a>
       <a
-        href={`http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/a5/subtract/${a}/${b}`}
+        href={`https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/a5/subtract/${a}/${b}`}
         className="btn btn-danger"
       >
         Substract {a} - {b}
@@ -35,13 +35,13 @@ function EncodingParametersInURLs() {
       <hr />
       <h3>Query Parameters</h3>
       <a
-        href={`http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/a5/calculator?operation=add&a=${a}&b=${b}`}
+        href={`https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/a5/calculator?operation=add&a=${a}&b=${b}`}
         className="btn btn-primary"
       >
         Add {a} + {b}
       </a>
       <a
-        href={`http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/a5/calculator?operation=subtract&a=${a}&b=${b}`}
+        href={`https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/a5/calculator?operation=subtract&a=${a}&b=${b}`}
         className="btn btn-danger"
       >
         Substract {a} - {b}

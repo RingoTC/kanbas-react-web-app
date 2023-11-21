@@ -16,9 +16,9 @@ import {
 } from "./client";
 
 const COURSE_URL =
-  "http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/api/courses";
+  "https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/api/courses";
 const MODULES_URL =
-  "http://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/api/modules";
+  "https://kanbas-node-server-app-cs5610-fa23-3jx3.onrender.com/api/modules";
 
 function ModuleList() {
   const modules = useSelector((state) => state.modulesReducer.modules);
