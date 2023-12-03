@@ -1,5 +1,5 @@
 import axios from "axios";
-const API_BASE = process.env.API_BASE || "http://localhost:4000";
+const API_BASE = process.env.REACT_APP_BASE_URL || "http://localhost:4000";
 const COURSES_URL = `${API_BASE}/api/courses`;
 const ASSIGNMENTS_URL = `${API_BASE}/api/assignments`;
 export const findAssignmentsForCourse = async (courseId) => {
