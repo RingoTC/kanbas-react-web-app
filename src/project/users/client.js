@@ -4,11 +4,12 @@ const request = axios.create({
   withCredentials: true,
 });
 
-const API_BASE = process.env.REACT_APP_BASE_URL || "http://localhost:4000";
+const API_BASE = process.env.REACT_APP_BASE_URL;
 const USER_API = `${API_BASE}/api/users`;
 
 export const signIn = async (credentials) => {
   const response = await request.post(`${USER_API}/signin`, credentials);
+  console.log("USER", USER_API);
   return response.data;
 };
 
