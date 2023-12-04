@@ -9,7 +9,6 @@ import { FaPencilAlt } from "react-icons/fa";
 
 import * as client from "./client";
 import { deleteUser } from "./client";
-import { useNavigate } from "react-router";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -19,8 +18,6 @@ function UserList() {
     password: "",
     role: "USER",
   });
-
-  const navigate = useNavigate();
 
   const createUser = async () => {
     try {
@@ -178,36 +175,25 @@ function UserList() {
           </div>
           <div className="list-group">
             {users.map((user) => (
-              <div>
-                <Link key={user._id} to={null} className="list-group-item">
-                  {user.username}
-                  <button className="float-end btn btn-warning me-2">
-                    <FaPencilAlt
-                      onClick={() => {
-                        selectUser(user);
-                        navigate(`/project/users/${user._id}`);
-                      }}
-                    />
-                  </button>
-                  <button className="float-end btn btn-danger me-2">
-                    <BsTrash3Fill
-                      onClick={(event) => {
-                        deleteUser(user._id);
-                        fetchUsers();
-                      }}
-                    />
-                  </button>
-                </Link>
-              </div>
+              <Link
+                key={user._id}
+                to={`/project/users/${user._id}`}
+                className="list-group-item"
+              >
+                {user.username}
+                <button className="float-end btn btn-warning me-2">
+                  <FaPencilAlt onClick={() => selectUser(user)} />
+                </button>
+              </Link>
             ))}
           </div>
         </>
       )}
       {currentUser && currentUser.role !== "ADMIN" && (
-        <h2>
-          <p>Current User: {currentUser.username} </p> Role: {currentUser.role}
-          <p>Only Admin can access this page</p>
-        </h2>
+        <div>
+          <p>You are not authorized to view this page.</p>
+          <p>try admin, admin again.</p>
+        </div>
       )}
     </div>
   );
