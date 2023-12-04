@@ -186,7 +186,7 @@ function UserList() {
                 </button>
                 <button className="float-end btn btn-danger me-2">
                   <BsTrash3Fill
-                    onClick={() => {
+                    onClick={(event) => {
                       event.preventDefault();
                       deleteUser(user._id);
                       fetchUsers();
