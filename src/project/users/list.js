@@ -185,7 +185,13 @@ function UserList() {
                   <FaPencilAlt onClick={() => selectUser(user)} />
                 </button>
                 <button className="float-end btn btn-danger me-2">
-                  <BsTrash3Fill onClick={() => deleteUser(user._id)} />
+                  <BsTrash3Fill
+                    onClick={() => {
+                      event.preventDefault();
+                      deleteUser(user._id);
+                      fetchUsers();
+                    }}
+                  />
                 </button>
               </Link>
             ))}
@@ -193,7 +199,10 @@ function UserList() {
         </>
       )}
       {currentUser && currentUser.role !== "ADMIN" && (
-        <Navigate to="/project/signin" />
+        <h2>
+          <p>Current User: {currentUser.username} </p> Role: {currentUser.role}
+          <p>Only Admin can access this page</p>
+        </h2>
       )}
     </div>
   );
