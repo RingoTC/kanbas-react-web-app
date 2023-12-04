@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
-import { BsFillCheckCircleFill, BsPlusCircleFill } from "react-icons/bs";
+import {
+  BsFillCheckCircleFill,
+  BsPlusCircleFill,
+  BsTrash3Fill,
+} from "react-icons/bs";
 import { FaPencilAlt } from "react-icons/fa";
 
 import * as client from "./client";
+import { deleteUser } from "./client";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -178,6 +183,9 @@ function UserList() {
                 {user.username}
                 <button className="float-end btn btn-warning me-2">
                   <FaPencilAlt onClick={() => selectUser(user)} />
+                </button>
+                <button className="float-end btn btn-danger me-2">
+                  <BsTrash3Fill onClick={() => deleteUser(user._id)} />
                 </button>
               </Link>
             ))}
