@@ -9,7 +9,7 @@ import { FaPencilAlt } from "react-icons/fa";
 
 import * as client from "./client";
 import { deleteUser } from "./client";
-import {useNavigate} from "react-router";
+import { useNavigate } from "react-router";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -179,28 +179,25 @@ function UserList() {
           <div className="list-group">
             {users.map((user) => (
               <div>
-                <Link
-                  key={user._id}
-                  to=null
-                  className="list-group-item"
-                >
+                <Link key={user._id} to={null} className="list-group-item">
                   {user.username}
                   <button className="float-end btn btn-warning me-2">
-                    <FaPencilAlt onClick={() => {
-                      selectUser(user)
-                      navigate(`/project/users/${user._id}`)
-                    }} />
+                    <FaPencilAlt
+                      onClick={() => {
+                        selectUser(user);
+                        navigate(`/project/users/${user._id}`);
+                      }}
+                    />
                   </button>
                   <button className="float-end btn btn-danger me-2">
                     <BsTrash3Fill
-                        onClick={(event) => {
-                          deleteUser(user._id);
-                          fetchUsers();
-                        }}
+                      onClick={(event) => {
+                        deleteUser(user._id);
+                        fetchUsers();
+                      }}
                     />
                   </button>
                 </Link>
-
               </div>
             ))}
           </div>
