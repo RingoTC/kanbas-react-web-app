@@ -9,6 +9,7 @@ import { FaPencilAlt } from "react-icons/fa";
 
 import * as client from "./client";
 import { deleteUser } from "./client";
+import {useNavigate} from "react-router";
 
 function UserList() {
   const [users, setUsers] = useState([]);
@@ -18,6 +19,8 @@ function UserList() {
     password: "",
     role: "USER",
   });
+
+  const navigate = useNavigate();
 
   const createUser = async () => {
     try {
@@ -175,25 +178,29 @@ function UserList() {
           </div>
           <div className="list-group">
             {users.map((user) => (
-              <Link
-                key={user._id}
-                to={`/project/users/${user._id}`}
-                className="list-group-item"
-              >
-                {user.username}
-                <button className="float-end btn btn-warning me-2">
-                  <FaPencilAlt onClick={() => selectUser(user)} />
-                </button>
+              <div>
+                <Link
+                  key={user._id}
+                  to=null
+                  className="list-group-item"
+                >
+                  {user.username}
+                  <button className="float-end btn btn-warning me-2">
+                    <FaPencilAlt onClick={() => {
+                      selectUser(user)
+                      navigate(`/project/users/${user._id}`)
+                    }} />
+                  </button>
+                </Link>
                 <button className="float-end btn btn-danger me-2">
                   <BsTrash3Fill
                     onClick={(event) => {
-                      event.preventDefault();
                       deleteUser(user._id);
                       fetchUsers();
                     }}
                   />
                 </button>
-              </Link>
+              </div>
             ))}
           </div>
         </>
