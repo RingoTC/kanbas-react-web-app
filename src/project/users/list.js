@@ -191,15 +191,16 @@ function UserList() {
                       navigate(`/project/users/${user._id}`)
                     }} />
                   </button>
+                  <button className="float-end btn btn-danger me-2">
+                    <BsTrash3Fill
+                        onClick={(event) => {
+                          deleteUser(user._id);
+                          fetchUsers();
+                        }}
+                    />
+                  </button>
                 </Link>
-                <button className="float-end btn btn-danger me-2">
-                  <BsTrash3Fill
-                    onClick={(event) => {
-                      deleteUser(user._id);
-                      fetchUsers();
-                    }}
-                  />
-                </button>
+
               </div>
             ))}
           </div>
